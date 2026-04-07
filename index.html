@@ -3,52 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VEX - Shaping Tomorrow</title>
+  <title>Studio - AI-Powered Web Design</title>
 
-  <!-- Inter Font -->
+  <!-- Google Fonts: Instrument Serif & Barlow -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- HLS.js for streaming video -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
+            heading: ["'Instrument Serif'", "serif"],
+            body: ["'Barlow'", "sans-serif"],
           },
+          colors: {
+            background: "hsl(var(--background))",
+            foreground: "hsl(var(--foreground))",
+            card: "hsl(var(--card))",
+            "card-foreground": "hsl(var(--card-foreground))",
+            primary: "hsl(var(--primary))",
+            "primary-foreground": "hsl(var(--primary-foreground))",
+            secondary: "hsl(var(--secondary))",
+            "secondary-foreground": "hsl(var(--secondary-foreground))",
+            muted: "hsl(var(--muted))",
+            "muted-foreground": "hsl(var(--muted-foreground))",
+            accent: "hsl(var(--accent))",
+            "accent-foreground": "hsl(var(--accent-foreground))",
+          }
         }
       }
     }
   </script>
 
   <style>
+    :root {
+      --background: 213 45% 67%;
+      --foreground: 0 0% 100%;
+      --card: 213 45% 62%;
+      --card-foreground: 0 0% 100%;
+      --primary: 0 0% 100%;
+      --primary-foreground: 213 45% 67%;
+      --secondary: 213 45% 72%;
+      --secondary-foreground: 0 0% 100%;
+      --muted: 213 35% 60%;
+      --muted-foreground: 0 0% 100% / 0.7;
+      --accent: 213 45% 72%;
+      --accent-foreground: 0 0% 100%;
+      --destructive: 0 84.2% 60.2%;
+      --border: 0 0% 100% / 0.2;
+      --input: 0 0% 100% / 0.2;
+      --ring: 0 0% 100% / 0.3;
+      --radius: 9999px;
+      --glass-bg: rgba(255, 255, 255, 0.12);
+      --glass-border: rgba(255, 255, 255, 0.25);
+      --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+      --glass-blur: 16px;
+    }
+
     body {
       background-color: black;
-      color: white;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
+      /* Default font-body set via tailwind */
     }
 
-    /* Video Background */
-    #bg-video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -1;
-    }
-
-    /* Liquid Glass CSS */
+    /* LIQUID GLASS CSS */
     .liquid-glass {
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(255, 255, 255, 0.01);
       background-blend-mode: luminosity;
       backdrop-filter: blur(4px);
       -webkit-backdrop-filter: blur(4px);
@@ -63,146 +93,431 @@
       inset: 0;
       border-radius: inherit;
       padding: 1.4px;
-      background: linear-gradient(180deg,
-        rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 20%,
-        rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
-        rgba(255,255,255,0.1) 80%, rgba(255,255,255,0.3) 100%);
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.45) 0%,
+        rgba(255, 255, 255, 0.15) 20%,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0) 60%,
+        rgba(255, 255, 255, 0.15) 80%,
+        rgba(255, 255, 255, 0.45) 100%
+      );
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       pointer-events: none;
     }
 
-    /* Fade-in Utility */
-    .fade-in {
-      opacity: 0;
-      transition-property: opacity;
-      transition-timing-function: ease-in-out;
+    .liquid-glass-strong {
+      background: rgba(255, 255, 255, 0.01);
+      background-blend-mode: luminosity;
+      backdrop-filter: blur(50px);
+      -webkit-backdrop-filter: blur(50px);
+      border: none;
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05),
+        inset 0 1px 1px rgba(255, 255, 255, 0.15);
+      position: relative;
+      overflow: hidden;
     }
-    .fade-in.is-visible {
-      opacity: 1;
+    .liquid-glass-strong::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1.4px;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.5) 0%,
+        rgba(255, 255, 255, 0.2) 20%,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0) 60%,
+        rgba(255, 255, 255, 0.2) 80%,
+        rgba(255, 255, 255, 0.5) 100%
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
     }
 
-    /* Animated Character */
-    .char-span {
-      display: inline-block;
-      opacity: 0;
-      transform: translateX(-18px);
-      transition: opacity 500ms ease, transform 500ms ease;
+    /* CUSTOM ANIMATIONS */
+    @keyframes blurTextIn {
+      0% { filter: blur(10px); opacity: 0; transform: translateY(50px); }
+      50% { filter: blur(5px); opacity: 0.5; transform: translateY(-5px); }
+      100% { filter: blur(0px); opacity: 1; transform: translateY(0); }
     }
-    .char-span.is-visible {
+
+    .blur-text-element {
+      opacity: 0; 
+      display: inline-block;
+    }
+    .blur-text-element.is-visible {
+      animation: blurTextIn 0.35s forwards;
+    }
+
+    .blur-up {
+      filter: blur(10px);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: filter 0.6s ease-out, opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .blur-up.is-visible {
+      filter: blur(0px);
       opacity: 1;
-      transform: translateX(0);
+      transform: translateY(0);
+    }
+
+    /* Video overlay gradients */
+    .fade-overlay-top {
+      background: linear-gradient(to top, transparent, black);
+    }
+    .fade-overlay-bottom {
+      background: linear-gradient(to bottom, transparent, black);
     }
   </style>
 </head>
-<body class="font-sans antialiased flex flex-col min-h-screen">
-
-  <video id="bg-video" autoplay loop muted playsinline>
-    <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260403_050628_c4e32401-fab4-4a27-b7a8-6e9291cd5959.mp4" type="video/mp4">
-  </video>
-
-  <!-- Navbar -->
-  <div class="w-full px-6 md:px-12 lg:px-16 pt-6 z-10 w-full relative">
-    <div class="liquid-glass rounded-xl px-4 py-2 flex items-center justify-between">
-      <!-- Left: Logo text or image -->
-      <div class="flex items-center gap-3">
-        <img src="logo.png" alt="Logo" class="h-8 w-auto rounded object-contain" onerror="this.src='../public/logo.png'; this.onerror=null;">
-        <span class="text-2xl font-semibold tracking-tight">VEX</span>
+<body class="bg-black font-body antialiased">
+  <div class="bg-black relative">
+    
+    <!-- 1. NAVBAR -->
+    <nav class="fixed top-4 left-0 right-0 z-50 px-8 lg:px-16 py-3 flex items-center justify-between">
+      <div class="h-12 w-12 flex-shrink-0">
+        <img src="../src/assets/logo-icon.png" alt="Logo" class="h-full w-full object-contain" onerror="this.src=''; this.className='h-12 w-12 bg-white/10 rounded-xl liquid-glass';">
       </div>
       
-      <!-- Center: Links -->
-      <nav class="hidden md:flex gap-8">
-        <a href="#" class="text-sm text-gray-300 hover:text-white transition-colors duration-200">Story</a>
-        <a href="#" class="text-sm text-gray-300 hover:text-white transition-colors duration-200">Investing</a>
-        <a href="#" class="text-sm text-gray-300 hover:text-white transition-colors duration-200">Building</a>
-        <a href="#" class="text-sm text-gray-300 hover:text-white transition-colors duration-200">Advisory</a>
-      </nav>
-
-      <!-- Right: Button -->
-      <div>
-        <a href="#" class="bg-white text-black px-6 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 transition-colors duration-200">
-          Start a Chat
+      <div class="hidden md:flex liquid-glass rounded-full px-1.5 py-1 items-center gap-1">
+        <a href="#" class="px-3 py-2 text-sm font-medium text-[hsl(0_0%_100%)]/90 font-body hover:text-white transition-colors">Product</a>
+        <a href="#" class="px-3 py-2 text-sm font-medium text-[hsl(0_0%_100%)]/90 font-body hover:text-white transition-colors">Integrations</a>
+        <a href="#" class="px-3 py-2 text-sm font-medium text-[hsl(0_0%_100%)]/90 font-body hover:text-white transition-colors">Compliance</a>
+        <a href="#" class="px-3 py-2 text-sm font-medium text-[hsl(0_0%_100%)]/90 font-body hover:text-white transition-colors">Docs</a>
+        <a href="#" class="px-3 py-2 text-sm font-medium text-[hsl(0_0%_100%)]/90 font-body hover:text-white transition-colors">Pricing</a>
+        <a href="#" class="bg-white text-black rounded-full px-3.5 py-1.5 text-sm flex items-center gap-1 ml-2 font-medium hover:bg-gray-200 transition-colors">
+          Connect Repo <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
         </a>
       </div>
-    </div>
-  </div>
+    </nav>
 
-  <!-- Hero Content -->
-  <div class="flex-1 flex flex-col justify-end px-6 md:px-12 lg:px-16 pb-12 lg:pb-16 z-10 relative mt-auto">
-    <div class="lg:grid lg:grid-cols-2 lg:items-end w-full">
-      
-      <!-- Left Column -->
-      <div class="mb-8 lg:mb-0">
-        <h1 id="animated-heading" class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal mb-4 text-white" style="letter-spacing: -0.04em;"></h1>
+    <!-- 2. HERO SECTION -->
+    <section class="relative overflow-visible h-[1000px] w-full bg-black">
+      <video id="hero-video" autoPlay loop muted playsInline class="absolute inset-0 w-full h-[120%] object-cover z-0 -top-[10%]"></video>
+      <div class="absolute inset-0 bg-black/40 z-0 pointer-events-none"></div>
+      <div class="absolute bottom-0 w-full h-[400px] z-0 fade-overlay-bottom pointer-events-none"></div>
+
+      <div class="relative z-10 flex flex-col items-center justify-start text-center h-full pt-[150px] px-6">
         
-        <p class="fade-in text-base md:text-lg text-gray-300 mb-5 max-w-xl" style="transition-duration: 1000ms;" data-delay="800">
-          We back visionaries and craft ventures that define what comes next.
+        <!-- Badge -->
+        <div class="liquid-glass rounded-full px-1 py-1 flex items-center gap-2 mb-8">
+          <span class="bg-white text-black rounded-full px-3 py-1 text-xs font-semibold">New</span>
+          <span class="text-xs font-medium text-white font-body pr-3">Introducing automated privacy policies via Code-AI.</span>
+        </div>
+
+        <!-- Heading with BlurText -->
+        <h1 class="blur-text-container text-6xl md:text-7xl lg:text-[5.5rem] font-heading italic text-white leading-[0.8] max-w-4xl tracking-[-4px] mb-8" data-delay="100">
+          Privacy Policies, Written By Your Code
+        </h1>
+
+        <!-- Subtext -->
+        <p class="blur-up text-sm md:text-base text-white font-body font-light leading-tight max-w-lg mb-10" data-delay="800">
+          Connect your repository. Our AI deeply analyzes your APIs, database schemas, and SDKs to instantly generate a bulletproof, legally-sound privacy policy.
         </p>
 
-        <div class="fade-in flex flex-wrap gap-4" style="transition-duration: 1000ms;" data-delay="1200">
-          <a href="#" class="bg-white text-black px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
-            Start a Chat
+        <!-- CTA Buttons -->
+        <div class="blur-up flex items-center gap-6" data-delay="1100">
+          <a href="#" class="liquid-glass-strong rounded-full px-5 py-2.5 flex items-center gap-2 text-white font-medium text-sm hover:text-white/80 transition-colors">
+            Connect GitHub <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
           </a>
-          <a href="#" class="liquid-glass border border-white/20 px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-black transition-colors duration-300 text-white">
-            Explore Now
+          <a href="#" class="flex items-center gap-2 text-white font-medium text-sm hover:text-white/80 transition-colors">
+            <i data-lucide="play" class="w-4 h-4 fill-white text-white"></i> See how it reads code
           </a>
         </div>
-      </div>
 
-      <!-- Right Column -->
-      <div class="flex items-end justify-start lg:justify-end">
-        <div class="fade-in liquid-glass border border-white/20 px-6 py-3 rounded-xl" style="transition-duration: 1000ms;" data-delay="1400">
-          <p class="text-lg md:text-xl lg:text-2xl font-light text-white">
-            Investing. Building. Advisory.
-          </p>
+        <!-- Partners Bar -->
+        <div class="mt-auto pb-8 pt-16 flex flex-col items-center w-full">
+          <div class="liquid-glass rounded-full px-4 py-1.5 mb-6 text-xs font-medium text-white font-body opacity-80">
+            Trusted by the legal teams at
+          </div>
+          <div class="flex flex-wrap items-center justify-center gap-12 md:gap-16 text-2xl md:text-3xl font-heading italic text-white/90">
+            <span>Stripe</span>
+            <span>Vercel</span>
+            <span>Linear</span>
+            <span>Notion</span>
+            <span>Figma</span>
+          </div>
         </div>
+
       </div>
+    </section>
+
+    <div class="bg-black relative z-20">
+      
+      <!-- 4. START SECTION ("How It Works") -->
+      <section class="relative w-full min-h-[500px] flex items-center justify-center py-32">
+        <video id="start-video" autoPlay loop muted playsInline class="absolute inset-0 w-full h-full object-cover z-0"></video>
+        <div class="absolute inset-y-0 top-0 w-full h-[200px] fade-overlay-top pointer-events-none z-0"></div>
+        <div class="absolute inset-y-0 bottom-0 w-full h-[200px] fade-overlay-bottom pointer-events-none z-0 mt-auto"></div>
+
+        <div class="relative z-10 flex flex-col items-center text-center px-6 max-w-3xl">
+          <div class="liquid-glass rounded-full px-3.5 py-1 text-xs font-medium text-white font-body mb-6">How It Works</div>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-heading italic tracking-tight leading-[0.9] text-white mb-6">You ship features. We write the legal.</h2>
+          <p class="text-white/60 font-body font-light text-sm md:text-base mb-10">
+            Stop manually tracking data flows across your microservices. We analyze your commits and dynamically update your privacy policy context so you never fall out of compliance.
+          </p>
+          <a href="#" class="liquid-glass-strong rounded-full px-6 py-3 text-white font-medium text-sm flex items-center gap-2">
+            Try it out <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- 5. FEATURES CHESS -->
+      <section class="max-w-7xl mx-auto px-6 lg:px-16 py-24 flex flex-col items-center w-full">
+        <div class="mb-20 text-center flex flex-col items-center">
+          <div class="liquid-glass rounded-full px-3.5 py-1 text-xs font-medium text-white font-body mb-6">Capabilities</div>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-heading italic tracking-tight leading-[0.9] text-white">Understands your architecture.</h2>
+        </div>
+
+        <!-- Row 1 -->
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-24 w-full">
+          <div class="flex-1 text-left flex flex-col items-start blur-up">
+            <h3 class="text-3xl lg:text-4xl font-heading italic text-white mb-6">Reads between the lines. Literally.</h3>
+            <p class="text-white/70 font-body font-light text-base lg:text-lg mb-8 max-w-md">
+              Our AI deeply scans your codebase across frontend platforms, backend services, and native apps to detect precisely what personal data is collected and where it goes.
+            </p>
+            <a href="#" class="liquid-glass-strong rounded-full px-6 py-3 text-white font-medium text-sm">See the tech</a>
+          </div>
+          <div class="flex-1 w-full blur-up flex justify-center lg:justify-end" data-delay="200">
+            <div class="liquid-glass rounded-2xl overflow-hidden w-full max-w-xl aspect-video border border-white/10 shadow-2xl">
+              <img src="../src/assets/feature-1.gif" alt="AI analyzing codebase preview" class="w-full h-full object-cover" onerror="this.src=''; this.className='w-full h-full bg-white/5';">
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20 w-full mb-10">
+          <div class="flex-1 text-left flex flex-col items-start blur-up">
+            <h3 class="text-3xl lg:text-4xl font-heading italic text-white mb-6">It stays updated. Automatically.</h3>
+            <p class="text-white/70 font-body font-light text-base lg:text-lg mb-8 max-w-md">
+              Every time you merge a PR that introduces a new third-party tracking payload or saves a new data field, we detect it and draft a policy amendment. No manual compliance checks.
+            </p>
+            <a href="#" class="liquid-glass-strong rounded-full px-6 py-3 text-white font-medium text-sm">View CI/CD integrations</a>
+          </div>
+          <div class="flex-1 w-full blur-up flex justify-center lg:justify-start" data-delay="200">
+            <div class="liquid-glass rounded-2xl overflow-hidden w-full max-w-xl aspect-video border border-white/10 shadow-2xl">
+              <img src="../src/assets/feature-2.gif" alt="Auto-update PR preview" class="w-full h-full object-cover" onerror="this.src=''; this.className='w-full h-full bg-white/5';">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. FEATURES GRID ("Why Us") -->
+      <section class="max-w-7xl mx-auto px-6 lg:px-16 py-24 w-full">
+        <div class="mb-16 text-center flex flex-col items-center">
+          <div class="liquid-glass rounded-full px-3.5 py-1 text-xs font-medium text-white font-body mb-6">Benefits</div>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-heading italic tracking-tight leading-[0.9] text-white">The difference is everything.</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 blur-up">
+          <div class="liquid-glass rounded-2xl p-6 flex flex-col items-start">
+            <div class="liquid-glass-strong rounded-full w-10 h-10 flex items-center justify-center mb-6">
+              <i data-lucide="zap" class="text-white w-5 h-5"></i>
+            </div>
+            <h3 class="font-body font-medium text-lg text-white mb-3">Seconds, Not Days</h3>
+            <p class="text-white/60 font-body font-light text-sm leading-relaxed">Generate comprehensive legal compliance documentation at the exact speed of compiling your code.</p>
+          </div>
+          <div class="liquid-glass rounded-2xl p-6 flex flex-col items-start">
+            <div class="liquid-glass-strong rounded-full w-10 h-10 flex items-center justify-center mb-6">
+              <i data-lucide="palette" class="text-white w-5 h-5"></i>
+            </div>
+            <h3 class="font-body font-medium text-lg text-white mb-3">Legally Compliant</h3>
+            <p class="text-white/60 font-body font-light text-sm leading-relaxed">Automated compliance tracking for robust GDPR, CCPA, and App Store transparency requirements.</p>
+          </div>
+          <div class="liquid-glass rounded-2xl p-6 flex flex-col items-start">
+            <div class="liquid-glass-strong rounded-full w-10 h-10 flex items-center justify-center mb-6">
+              <i data-lucide="bar-chart-3" class="text-white w-5 h-5"></i>
+            </div>
+            <h3 class="font-body font-medium text-lg text-white mb-3">Developer Friendly</h3>
+            <p class="text-white/60 font-body font-light text-sm leading-relaxed">Hooks right into your CI/CD pipeline or GitHub Actions effortlessly locking in code-to-legal parity.</p>
+          </div>
+          <div class="liquid-glass rounded-2xl p-6 flex flex-col items-start">
+            <div class="liquid-glass-strong rounded-full w-10 h-10 flex items-center justify-center mb-6">
+              <i data-lucide="shield" class="text-white w-5 h-5"></i>
+            </div>
+            <h3 class="font-body font-medium text-lg text-white mb-3">Secure by Default</h3>
+            <p class="text-white/60 font-body font-light text-sm leading-relaxed">We securely read your abstraction trees but never store or capture your proprietary source assets.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. STATS SECTION -->
+      <section class="relative w-full py-32 flex items-center justify-center px-6">
+        <video id="stats-video" autoPlay loop muted playsInline class="absolute inset-0 w-full h-full object-cover z-0" style="filter: saturate(0)"></video>
+        <div class="absolute inset-y-0 top-0 w-full h-[200px] fade-overlay-top pointer-events-none z-0"></div>
+        <div class="absolute inset-y-0 bottom-0 w-full h-[200px] fade-overlay-bottom pointer-events-none z-0 mt-auto"></div>
+
+        <div class="relative z-10 w-full max-w-6xl blur-up">
+          <div class="liquid-glass rounded-3xl p-12 md:p-16 grid grid-cols-2 md:grid-cols-4 gap-12 text-center shadow-2xl">
+            <div>
+              <div class="text-4xl md:text-5xl lg:text-6xl font-heading italic text-white mb-2">1B+</div>
+              <div class="text-white/60 font-body font-light text-sm tracking-wide">Lines of code scanned</div>
+            </div>
+            <div>
+              <div class="text-4xl md:text-5xl lg:text-6xl font-heading italic text-white mb-2">10k+</div>
+              <div class="text-white/60 font-body font-light text-sm tracking-wide">Policies generated</div>
+            </div>
+            <div>
+              <div class="text-4xl md:text-5xl lg:text-6xl font-heading italic text-white mb-2">100%</div>
+              <div class="text-white/60 font-body font-light text-sm tracking-wide">API coverage mapping</div>
+            </div>
+            <div>
+              <div class="text-4xl md:text-5xl lg:text-6xl font-heading italic text-white mb-2">0</div>
+              <div class="text-white/60 font-body font-light text-sm tracking-wide">Manual reviews needed</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. TESTIMONIALS -->
+      <section class="max-w-7xl mx-auto px-6 lg:px-16 py-24 w-full">
+        <div class="mb-16 text-center flex flex-col items-center">
+          <div class="liquid-glass rounded-full px-3.5 py-1 text-xs font-medium text-white font-body mb-6">What Data Teams Say</div>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-heading italic tracking-tight leading-[0.9] text-white">Trust from top law firms.</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 blur-up">
+          <div class="liquid-glass rounded-2xl p-8 flex flex-col justify-between h-full">
+            <p class="text-white/80 font-body font-light text-sm italic leading-relaxed mb-8">"It discovered a dormant analytics SDK deep in our legacy code that we had entirely forgotten to disclose. Saved us millions in CCPA liabilities."</p>
+            <div>
+              <div class="text-white font-body font-medium text-sm">Sarah Chen</div>
+              <div class="text-white/50 font-body font-light text-xs">Chief Privacy Officer</div>
+            </div>
+          </div>
+          <div class="liquid-glass rounded-2xl p-8 flex flex-col justify-between h-full">
+            <p class="text-white/80 font-body font-light text-sm italic leading-relaxed mb-8">"Finally, a policy that accurately updates itself with every sprint deploy. The integration with our GitHub repo took exactly 4 minutes."</p>
+            <div>
+              <div class="text-white font-body font-medium text-sm">Marcus Webb</div>
+              <div class="text-white/50 font-body font-light text-xs">VP of Engineering</div>
+            </div>
+          </div>
+          <div class="liquid-glass rounded-2xl p-8 flex flex-col justify-between h-full">
+            <p class="text-white/80 font-body font-light text-sm italic leading-relaxed mb-8">"Using this tool is essentially having a world-class technology lawyer strapped directly onto your continuous integration pipeline."</p>
+            <div>
+              <div class="text-white font-body font-medium text-sm">Elena Voss</div>
+              <div class="text-white/50 font-body font-light text-xs">Legal Counsel</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. CTA + FOOTER -->
+      <section class="relative w-full min-h-[600px] flex flex-col pt-32 px-6 overflow-hidden">
+        <video id="cta-video" autoPlay loop muted playsInline class="absolute inset-0 w-full h-full object-cover z-0"></video>
+        <div class="absolute inset-y-0 top-0 w-full h-[200px] fade-overlay-top pointer-events-none z-0"></div>
+        <div class="absolute inset-y-0 bottom-0 w-full h-[200px] fade-overlay-bottom pointer-events-none z-0 mt-auto"></div>
+
+        <div class="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto flex-1 justify-center pt-20">
+          <h2 class="text-5xl md:text-6xl lg:text-7xl font-heading italic leading-[0.85] text-white mb-8 blur-up">Let your code do the talking.</h2>
+          <p class="text-white/70 font-body font-light text-base md:text-lg mb-12 max-w-2xl blur-up" data-delay="300">
+            Connect your codebase securely today and output a complete legal overview of your data infrastructure in 20 seconds.
+          </p>
+          <div class="flex items-center gap-4 blur-up" data-delay="500">
+            <a href="#" class="liquid-glass-strong rounded-full px-8 py-4 text-white font-medium text-sm flex items-center gap-2 transition-transform hover:scale-105 duration-300">
+              Connect Repo <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+            <a href="#" class="bg-white text-black rounded-full px-8 py-4 font-medium text-sm transition-transform hover:scale-105 duration-300">
+              View Sample Policy
+            </a>
+          </div>
+        </div>
+
+        <footer class="relative z-10 mt-32 pt-8 pb-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between w-full max-w-7xl mx-auto mx-12 text-white/40 text-xs font-body">
+          <div class="mb-4 md:mb-0">&copy; 2026 Code-AI Policies. All rights reserved.</div>
+          <div class="flex gap-6">
+            <a href="#" class="hover:text-white transition-colors">Privacy</a>
+            <a href="#" class="hover:text-white transition-colors">Terms</a>
+            <a href="#" class="hover:text-white transition-colors">Contact</a>
+          </div>
+        </footer>
+      </section>
 
     </div>
   </div>
 
   <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // HLS Video Setup Helper
+    function setupHLS(videoId, src) {
+      const video = document.getElementById(videoId);
+      if(!video) return;
+      if (Hls.isSupported()) {
+        const hls = new Hls();
+        hls.loadSource(src);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function() {
+          video.play().catch(e => console.log('Autoplay prevented:', e));
+        });
+      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = src;
+        video.addEventListener('loadedmetadata', function() {
+          video.play().catch(e => console.log('Autoplay prevented:', e));
+        });
+      }
+    }
+
+    // Initialize HLS Videos
     document.addEventListener("DOMContentLoaded", () => {
-      // Setup Text Animation for Heading
-      const headingContainer = document.getElementById('animated-heading');
-      const textLines = ["Shaping tomorrow", "with vision and action."];
-      
-      let initialDelay = 200;
-      const charDelay = 30;
+      setupHLS('hero-video', 'https://stream.mux.com/9JXDljEVWYwWu01PUkAemafDugK89o01BR6zqJ3aS9u00A.m3u8');
+      setupHLS('start-video', 'https://stream.mux.com/9JXDljEVWYwWu01PUkAemafDugK89o01BR6zqJ3aS9u00A.m3u8');
+      setupHLS('stats-video', 'https://stream.mux.com/NcU3HlHeF7CUL86azTTzpy3Tlb00d6iF3BmCdFslMJYM.m3u8');
+      setupHLS('cta-video', 'https://stream.mux.com/8wrHPCX2dC3msyYU9ObwqNdm00u3ViXvOSHUMRYSEe5Q.m3u8');
 
-      textLines.forEach((line, lineIndex) => {
-        const lineDiv = document.createElement('div');
-        for (let charIndex = 0; charIndex < line.length; charIndex++) {
-          const char = line[charIndex];
+      // BlurText Component Setup
+      const blurContainers = document.querySelectorAll('.blur-text-container');
+      blurContainers.forEach(container => {
+        const text = container.textContent.trim();
+        container.textContent = '';
+        const words = text.split(/\s+/);
+        
+        words.forEach((word, index) => {
           const span = document.createElement('span');
-          span.className = 'char-span';
-          span.textContent = char === ' ' ? '\u00A0' : char;
-          
-          // Spec formula: (lineIndex * lineLength * charDelay) + (charIndex * charDelay)
-          const lineLength = textLines[lineIndex].length;
-          const delay = initialDelay + (lineIndex * lineLength * charDelay) + (charIndex * charDelay);
-          
-          span.style.transitionDelay = `${delay}ms`;
-          
-          // Trigger animation
-          setTimeout(() => {
-            span.classList.add('is-visible');
-          }, 10);
-          
-          lineDiv.appendChild(span);
-        }
-        headingContainer.appendChild(lineDiv);
+          span.className = 'blur-text-element';
+          span.textContent = word + ' '; // Add space back
+          span.style.animationDelay = `${(index * 150) + 100}ms`; // Stagger effect
+          container.appendChild(span);
+        });
       });
 
-      // Setup Fade-in Elements
-      const fadeElements = document.querySelectorAll('.fade-in');
-      fadeElements.forEach(el => {
-        const delay = parseInt(el.getAttribute('data-delay') || '0', 10);
-        setTimeout(() => {
-          el.classList.add('is-visible');
-        }, delay);
-      });
+      // Intersection Observer for all Animations
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            
+            // Handle standard fade/blur up elements
+            if (entry.target.classList.contains('blur-up') || entry.target.classList.contains('blur-text-container')) {
+              const delayStr = entry.target.getAttribute('data-delay');
+              const delayMs = delayStr ? parseInt(delayStr, 10) : 0;
+              
+              setTimeout(() => {
+                entry.target.classList.add('is-visible');
+                
+                // If this is a text container, animate children
+                if (entry.target.classList.contains('blur-text-container')) {
+                  entry.target.querySelectorAll('.blur-text-element').forEach(child => {
+                    child.classList.add('is-visible');
+                  });
+                }
+              }, delayMs);
+            }
+            
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      // Observe elements
+      document.querySelectorAll('.blur-up, .blur-text-container').forEach(el => observer.observe(el));
     });
   </script>
 </body>
