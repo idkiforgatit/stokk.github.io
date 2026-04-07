@@ -1,21 +1,49 @@
-# [Privacy Policy for Stokk App](https://idkiforgatit.github.io/)
+# Privacy Policy for Stokk App
 
-Welcome to **Stokk**! Your privacy is our priority. Below you can find the main sections of our privacy policy.
-
----
-
-## [Download Now](https://play.google.com/store/apps/details?id=your.package.name)
-
-Get **Stokk** on the Google Play Store and enjoy a secure and fun experience.
+Welcome to **Stokk**! Your privacy is important to us. This page explains how we handle your information and protect your data.
 
 ---
 
-## [Privacy Highlights](https://idkiforgatit.github.io/)
+## About Stokk
 
-- **No Selling of Data** – Your personal information is never sold.  
-- **Data Usage** – Only used to enhance your app experience.  
-- **Transparency** – Full details are available on our [Privacy Policy Page](https://idkiforgatit.github.io/).
+**Stokk** is designed to provide a safe and fun experience for all users. We respect your privacy and ensure transparency in all our practices.
 
 ---
 
-Thank you for trusting **Stokk**! Your security matters to us.
+## Data Collection
+
+We only collect the information necessary to provide and improve your app experience, including:  
+- Device information  
+- Usage data  
+- Optional data you provide for personalized features  
+
+We do **not sell** your personal data to any third party.
+
+---
+
+## Data Usage
+
+The data collected is used to:  
+- Improve app performance  
+- Personalize your experience  
+- Maintain security and prevent abuse  
+
+All data is handled responsibly and securely.
+
+---
+
+## Children’s Privacy
+
+If you are under 13, please review this section carefully:  
+- We comply with regulations to protect children’s privacy  
+- Only collect essential information required for the app  
+
+---
+
+## Updates to Privacy Policy
+
+We may update this privacy policy from time to time. Any changes will be reflected here to keep you informed.
+
+---
+
+Thank you for trusting **Stokk**! Your security and privacy are our top priorities.
