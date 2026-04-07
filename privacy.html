@@ -37,7 +37,32 @@
       position: relative;
     }
 
-    .blur-text-element { display: inline-block; }
+    /* CUSTOM ANIMATIONS */
+    @keyframes blurTextIn {
+      0% { filter: blur(10px); opacity: 0; transform: translateY(50px); }
+      50% { filter: blur(5px); opacity: 0.5; transform: translateY(-5px); }
+      100% { filter: blur(0px); opacity: 1; transform: translateY(0); }
+    }
+
+    .blur-text-element {
+      opacity: 0; 
+      display: inline-block;
+    }
+    .blur-text-element.is-visible {
+      animation: blurTextIn 0.35s forwards;
+    }
+
+    .blur-up {
+      filter: blur(10px);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: filter 0.6s ease-out, opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .blur-up.is-visible {
+      filter: blur(0px);
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
   <script>
     tailwind.config = {
@@ -52,14 +77,17 @@
     }
   </script>
 </head>
-<body class="bg-black font-body antialiased text-white">
+<body class="bg-black font-body antialiased text-white relative">
+  <!-- Smooth Glowing Backgronud elements -->
+  <div class="fixed top-[10%] left-[-10%] w-[50%] h-[50%] bg-white/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
+  <div class="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-white/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
   <nav class="fixed top-4 left-0 right-0 z-50 px-8 lg:px-16 py-3 flex items-center justify-between">
-    <a href="index.html" class="h-12 w-12 flex-shrink-0 flex items-center justify-center transition-transform hover:scale-105 duration-300">
+    <a href="index.html" class="h-12 w-12 flex-shrink-0 flex items-center justify-center transition-transform hover:scale-105 duration-300 relative z-10">
       <img src="logo.png" alt="Stokk Logo" class="h-full w-full object-contain aspect-square">
     </a>
     
-    <div class="hidden md:flex liquid-glass rounded-full px-1.5 py-1 items-center gap-1">
+    <div class="hidden md:flex liquid-glass rounded-full px-1.5 py-1 items-center gap-1 relative z-10">
       <a href="index.html" class="px-4 py-2 text-sm font-medium text-white font-body hover:text-gray-300 transition-colors">Home</a>
       <a href="#" class="bg-white text-black rounded-full px-3.5 py-1.5 text-sm flex items-center gap-1 ml-2 font-medium hover:bg-gray-200 transition-colors">
         Download App <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
@@ -68,37 +96,37 @@
   </nav>
 
   <!-- Content Section -->
-  <main class="max-w-4xl mx-auto px-6 pt-48 pb-32">
+  <main class="max-w-4xl mx-auto px-6 pt-48 pb-32 relative z-10">
     <!-- Header -->
     <div class="mb-16">
-      <div class="liquid-glass rounded-full px-3.5 py-1 text-xs font-medium text-white font-body mb-6 inline-block">Legal Hub</div>
-      <h1 class="text-5xl md:text-6xl font-heading italic text-white leading-tight tracking-tight mb-6">
+      <div class="liquid-glass rounded-full px-3.5 py-1 text-xs font-medium text-white font-body mb-6 inline-block blur-up">Legal Hub</div>
+      <h1 class="blur-text-container text-5xl md:text-6xl font-heading italic text-white leading-tight tracking-tight mb-6" data-delay="100">
         Privacy Policy
       </h1>
-      <p class="text-white/60 font-body font-light text-base md:text-lg max-w-2xl">
+      <p class="text-white/60 font-body font-light text-base md:text-lg max-w-2xl blur-up" data-delay="400">
         Effective immediately upon downloading Stokk. We take simulation seriously, and privacy even more seriously.
       </p>
     </div>
 
     <!-- Policy Content Container -->
-    <div class="liquid-glass rounded-3xl p-8 md:p-12 border border-white/10">
+    <div class="liquid-glass rounded-3xl p-8 md:p-12 border border-white/10 blur-up" data-delay="600">
       
       <div class="space-y-12">
-        <section>
+        <section class="blur-up" data-delay="700">
           <h2 class="text-2xl font-heading italic text-white mb-4">1. Introduction</h2>
           <p class="text-white/70 font-light text-sm md:text-base leading-relaxed">
             Welcome to Stokk ("us", "we", or "our"), a premium simulated crypto trading terminal operating natively on Expo Go. This Privacy Policy outlines how we handle your data when you practice paper-trading across the market in our application. Because our assets and bankrolls are 100% simulated, our fundamental policy is data minimalization. 
           </p>
         </section>
 
-        <section>
+        <section class="blur-up" data-delay="800">
           <h2 class="text-2xl font-heading italic text-white mb-4">2. Zero Real Financial Data</h2>
           <p class="text-white/70 font-light text-sm md:text-base leading-relaxed">
             Because our application allows you to trade with fake money ("Stokk Tokens" or standard fiat simulations), we will <strong>never</strong> ask you to link a legitimate brokerage API, provide banking credentials, or expose credit card information. Your simulated portfolio balance is purely a mathematical state living in your localized app storage.
           </p>
         </section>
 
-        <section>
+        <section class="blur-up" data-delay="900">
           <h2 class="text-2xl font-heading italic text-white mb-4">3. What We Map and Store</h2>
           <p class="text-white/70 font-light text-sm md:text-base leading-relaxed mb-4">
             In order to provide competitive leaderboards and progression tiers based on your tap count, we store:
@@ -110,17 +138,52 @@
           </ul>
         </section>
 
-        <section>
+        <section class="blur-up" data-delay="1000">
           <h2 class="text-2xl font-heading italic text-white mb-4">4. Third-Party Market Engines</h2>
           <p class="text-white/70 font-light text-sm md:text-base leading-relaxed">
             While your money is completely simulated, to give you a hyper-authentic paper-trading environment, our application subscribes to real-time asset feeds. These feeds are strictly read-only incoming websocket packets providing global market variables. No personal data flows outward to these market engines.
           </p>
         </section>
 
-        <section>
-          <h2 class="text-2xl font-heading italic text-white mb-4">5. Revisions and Contact Info</h2>
+        <section class="blur-up" data-delay="1100">
+          <h2 class="text-2xl font-heading italic text-white mb-4">5. No Financial Advice</h2>
           <p class="text-white/70 font-light text-sm md:text-base leading-relaxed">
-            This Privacy Policy may evolve periodically as we expand simulated features. For any inquiries regarding your data mapping, contact our simulation engineers directly at <a href="mailto:pigeon.software.2012@gmail.com" class="text-white underline decoration-white/30 hover:decoration-white transition-colors">pigeon.software.2012@gmail.com</a>.
+            Stokk is strictly a simulation tool intended for entertainment and educational purposes only. Any interactions, simulated gains, simulated losses, or tiered progression within the application do not constitute financial, investment, or trading advice. Past performance within the simulator does not guarantee or indicate future performance in real-world markets. You agree that Stokk is not liable for any real-world financial decisions you make based on simulator activity.
+          </p>
+        </section>
+
+        <section class="blur-up" data-delay="1200">
+          <h2 class="text-2xl font-heading italic text-white mb-4">6. Disclaimer of Warranties and Liability</h2>
+          <p class="text-white/70 font-light text-sm md:text-base leading-relaxed">
+            The application is provided "AS IS" and "AS AVAILABLE" without warranties of any kind. We explicitly disclaim any liability for potential data loss, service interruptions, or inaccuracies in the simulated pricing feed. You expressly agree that your use of the application is at your sole risk, and Stokk operators cannot be held liable for compensatory, direct, indirect, or consequential damages.
+          </p>
+        </section>
+
+        <section class="blur-up" data-delay="1300">
+          <h2 class="text-2xl font-heading italic text-white mb-4">7. Data Retention and Deletion</h2>
+          <p class="text-white/70 font-light text-sm md:text-base leading-relaxed">
+            Your simulated progress consists of local device storage and/or anonymized database syncs attached entirely to randomly generated unique device identifiers. If you delete the Stokk application from your device, your local data is permanently eradicated. We reserve the right to prune or delete inactive UUIDs periodically without prior notice to maintain server stability.
+          </p>
+        </section>
+
+        <section class="blur-up" data-delay="1400">
+          <h2 class="text-2xl font-heading italic text-white mb-4">8. Age Restriction (COPPA Compliance)</h2>
+          <p class="text-white/70 font-light text-sm md:text-base leading-relaxed">
+            Stokk is not intended for use by individuals under the age of 13, and we do not knowingly map or collect data from minors. Because the application involves simulated financial markets, we heavily restrict data mapping. If we become unaware that an underage user's data has been logged, we will immediately execute protocols to delete said data.
+          </p>
+        </section>
+
+        <section class="blur-up" data-delay="1500">
+          <h2 class="text-2xl font-heading italic text-white mb-4">9. Changes and Severability</h2>
+          <p class="text-white/70 font-light text-sm md:text-base leading-relaxed">
+            We reserve the unconditional right to modify this specific Privacy Policy and Terms of Use at any given time. If any provision within this document is found to be legally unenforceable by a competent jurisdiction, that specific provision shall be severed, and the remainder of the legal shields shall continue in full functional effect.
+          </p>
+        </section>
+
+        <section class="blur-up" data-delay="1600">
+          <h2 class="text-2xl font-heading italic text-white mb-4">10. Contacting Legal & Support</h2>
+          <p class="text-white/70 font-light text-sm md:text-base leading-relaxed">
+            By downloading, accessing, or interacting with the Stokk terminal, you fully acknowledge and accept the terms of this document. For inquiries regarding data minimalization protocols or legal correspondence, contact our administration directly at <a href="mailto:pigeon.software.2012@gmail.com" class="text-white underline decoration-white/30 hover:decoration-white transition-colors">pigeon.software.2012@gmail.com</a>.
           </p>
         </section>
       </div>
@@ -128,7 +191,7 @@
     </div>
   </main>
 
-  <footer class="relative z-10 pt-8 pb-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between w-full max-w-7xl mx-auto px-6 text-white/40 text-xs font-body">
+  <footer class="relative z-10 pt-8 pb-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between w-full max-w-7xl mx-auto px-6 text-white/40 text-xs font-body blur-up" data-delay="1200">
     <div class="mb-4 md:mb-0">&copy; 2026 Stokk App. All rights reserved.</div>
     <div class="flex gap-6">
       <a href="index.html" class="hover:text-white transition-colors">Home</a>
@@ -136,7 +199,56 @@
   </footer>
 
   <script>
+    // Initialize Lucide Icons
     lucide.createIcons();
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // BlurText Component Setup
+      const blurContainers = document.querySelectorAll('.blur-text-container');
+      blurContainers.forEach(container => {
+        const text = container.textContent.trim();
+        container.textContent = '';
+        const words = text.split(/\s+/);
+        
+        words.forEach((word, index) => {
+          const span = document.createElement('span');
+          span.className = 'blur-text-element';
+          span.innerHTML = word + '&nbsp;'; // Force non-breaking space
+          span.style.animationDelay = `${(index * 150) + 100}ms`; // Stagger effect
+          container.appendChild(span);
+        });
+      });
+
+      // Intersection Observer for all Animations
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            
+            // Handle standard fade/blur up elements
+            if (entry.target.classList.contains('blur-up') || entry.target.classList.contains('blur-text-container')) {
+              const delayStr = entry.target.getAttribute('data-delay');
+              const delayMs = delayStr ? parseInt(delayStr, 10) : 0;
+              
+              setTimeout(() => {
+                entry.target.classList.add('is-visible');
+                
+                // If this is a text container, animate children
+                if (entry.target.classList.contains('blur-text-container')) {
+                  entry.target.querySelectorAll('.blur-text-element').forEach(child => {
+                    child.classList.add('is-visible');
+                  });
+                }
+              }, delayMs);
+            }
+            
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      // Observe elements
+      document.querySelectorAll('.blur-up, .blur-text-container').forEach(el => observer.observe(el));
+    });
   </script>
 </body>
 </html>
