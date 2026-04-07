@@ -183,13 +183,12 @@
     
     <!-- 1. NAVBAR -->
     <nav class="fixed top-4 left-0 right-0 z-50 px-8 lg:px-16 py-3 flex items-center justify-between">
-      <div class="h-12 w-12 flex-shrink-0">
-        <img src="../src/assets/logo-icon.png" alt="Logo" class="h-full w-full object-contain" onerror="this.src='logo.png'; this.className='h-12 w-12 bg-white/10 rounded-xl liquid-glass flex items-center justify-center text-white font-bold tracking-tighter'; this.alt='S';">
+      <div class="h-12 w-12 flex-shrink-0 flex items-center justify-center">
+        <img src="../src/assets/logo-icon.png" alt="Logo" class="h-full w-full object-contain aspect-square" onerror="this.src=''; this.outerHTML='<div class=\'h-12 w-12 aspect-square bg-white/10 rounded-xl liquid-glass flex items-center justify-center text-white font-bold text-xl tracking-tighter\'>S</div>';">
       </div>
       
       <div class="hidden md:flex liquid-glass rounded-full px-1.5 py-1 items-center gap-1">
-        <a href="#" class="px-3 py-2 text-sm font-medium text-white font-body hover:text-gray-300 transition-colors">Terminal</a>
-        <a href="#" class="px-3 py-2 text-sm font-medium text-white font-body hover:text-gray-300 transition-colors">Markets</a>
+        <a href="privacy.html" class="px-4 py-2 text-sm font-medium text-white font-body hover:text-gray-300 transition-colors">Privacy Policy</a>
         <a href="#" class="bg-white text-black rounded-full px-3.5 py-1.5 text-sm flex items-center gap-1 ml-2 font-medium hover:bg-gray-200 transition-colors">
           Download App <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
         </a>
@@ -211,8 +210,8 @@
         </div>
 
         <!-- Heading with BlurText -->
-        <h1 class="blur-text-container text-6xl md:text-7xl lg:text-[5.5rem] font-heading italic text-white leading-[0.8] max-w-4xl tracking-[-4px] mb-8" data-delay="100">
-          Master the Market. Zero Real Risk.
+        <h1 class="blur-text-container text-6xl md:text-7xl lg:text-[6rem] font-heading italic text-white leading-[0.9] max-w-4xl tracking-tight mb-8" data-delay="100">
+          Play the market.
         </h1>
 
         <!-- Subtext -->
@@ -231,7 +230,29 @@
     </section>
 
     <div class="bg-black relative z-20">
-      
+
+      <!-- 3. MIDDLE FILLER SECTION -->
+      <section class="max-w-6xl mx-auto px-6 py-24 blur-up relative z-10 w-full" data-delay="200">
+        <div class="liquid-glass rounded-3xl p-10 flex flex-col md:flex-row items-center justify-between gap-12 border border-white/10 shadow-2xl">
+          <div class="flex-1 text-center md:text-left">
+            <i data-lucide="zap" class="text-white w-6 h-6 mb-4 mx-auto md:mx-0"></i>
+            <h3 class="font-body font-medium text-lg text-white mb-2">Live Engines</h3>
+            <p class="text-white/60 font-body font-light text-sm">Real-time simulation powered by top crypto feeds.</p>
+          </div>
+          <div class="w-px h-16 bg-white/10 hidden md:block"></div>
+          <div class="flex-1 text-center">
+            <i data-lucide="bar-chart-3" class="text-white w-6 h-6 mb-4 mx-auto"></i>
+            <h3 class="font-body font-medium text-lg text-white mb-2">Tiered Assets</h3>
+            <p class="text-white/60 font-body font-light text-sm">Climb through ranks and unlock exclusive massive-cap tokens.</p>
+          </div>
+          <div class="w-px h-16 bg-white/10 hidden md:block"></div>
+          <div class="flex-1 text-center md:text-right">
+            <i data-lucide="shield" class="text-white w-6 h-6 mb-4 mx-auto md:ml-auto md:mr-0"></i>
+            <h3 class="font-body font-medium text-lg text-white mb-2">Zero Risk</h3>
+            <p class="text-white/60 font-body font-light text-sm">Test complex strategies completely safely with fake bankrolls.</p>
+          </div>
+        </div>
+      </section>
 
       <!-- 9. CTA + FOOTER -->
       <section class="relative w-full min-h-[600px] flex flex-col pt-32 px-6 overflow-hidden">
