@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stokk - Privacy Policy</title>
+
+  <!-- Google Fonts: Instrument Serif & Barlow -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --background: 0 0% 0%;
+      --foreground: 0 0% 100%;
+    }
+
+    body {
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+      font-family: 'Barlow', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* Core Utility Classes for Premium Aesthetics */
+    .liquid-glass {
+      background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+    }
+
+    .blur-text-element { display: inline-block; }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ["'Instrument Serif'", "serif"],
+            body: ["'Barlow'", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-black font-body antialiased text-white">
+
+  <!-- 1. NAVBAR -->
+  <nav class="fixed top-4 left-0 right-0 z-50 px-8 lg:px-16 py-3 flex items-center justify-between">
+    <a href="index.html" class="h-12 w-12 flex-shrink-0 flex items-center justify-center liquid-glass rounded-xl bg-white/10 text-white font-bold text-xl tracking-tighter shadow-lg aspect-square border border-white/20 transition-transform hover:scale-105 duration-300">
+      S
+    </a>
+    
+    <div class="hidden md:flex liquid-glass rounded-full px-1.5 py-1 items-center gap-1">
+      <a href="index.html" class="px-4 py-2 text-sm font-medium text-white font-body hover:text-gray-300 transition-colors">Home</a>
+      <a href="#" class="bg-white text-black rounded-full px-3.5 py-1.5 text-sm flex items-center gap-1 ml-2 font-medium hover:bg-gray-200 transition-colors">
+        Download App <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Content Section -->
+  <main class="max-w-4xl mx-auto px-6 pt-48 pb-32">
+    <!-- Header -->
+    <div class="mb-16">
+      <div class="liquid-glass rounded-full px-3.5 py-1 text-xs font-medium text-white font-body mb-6 inline-block">Legal Hub</div>
+      <h1 class="text-5xl md:text-6xl font-heading italic text-white leading-tight tracking-tight mb-6">
+        Privacy Policy
+      </h1>
+      <p class="text-white/60 font-body font-light text-base md:text-lg max-w-2xl">
+        Effective immediately upon downloading Stokk. We take simulation seriously, and privacy even more seriously.
+      </p>
+    </div>
+
+    <!-- Policy Content Container -->
+    <div class="liquid-glass rounded-3xl p-8 md:p-12 border border-white/10">
+      
+      <div class="space-y-12">
+        <section>
+          <h2 class="text-2xl font-heading italic text-white mb-4">1. Introduction</h2>
+          <p class="text-white/70 font-light text-sm md:text-base leading-relaxed">
+            Welcome to Stokk ("us", "we", or "our"), a premium simulated crypto trading terminal operating natively on Expo Go. This Privacy Policy outlines how we handle your data when you practice paper-trading across the market in our application. Because our assets and bankrolls are 100% simulated, our fundamental policy is data minimalization. 
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-heading italic text-white mb-4">2. Zero Real Financial Data</h2>
+          <p class="text-white/70 font-light text-sm md:text-base leading-relaxed">
+            Because our application allows you to trade with fake money ("Stokk Tokens" or standard fiat simulations), we will <strong>never</strong> ask you to link a legitimate brokerage API, provide banking credentials, or expose credit card information. Your simulated portfolio balance is purely a mathematical state living in your localized app storage.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-heading italic text-white mb-4">3. What We Map and Store</h2>
+          <p class="text-white/70 font-light text-sm md:text-base leading-relaxed mb-4">
+            In order to provide competitive leaderboards and progression tiers based on your tap count, we store:
+          </p>
+          <ul class="list-disc pl-5 space-y-2 text-white/70 font-light text-sm md:text-base">
+            <li>An anonymous installation UUID generated by Expo upon initialization.</li>
+            <li>Your current simulation milestones (e.g., tap count, acquired fake-crypto assets).</li>
+            <li>Non-identifiable crash reports to stabilize the terminal environment.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-heading italic text-white mb-4">4. Third-Party Market Engines</h2>
+          <p class="text-white/70 font-light text-sm md:text-base leading-relaxed">
+            While your money is completely simulated, to give you a hyper-authentic paper-trading environment, our application subscribes to real-time asset feeds. These feeds are strictly read-only incoming websocket packets providing global market variables. No personal data flows outward to these market engines.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-heading italic text-white mb-4">5. Revisions and Contact Info</h2>
+          <p class="text-white/70 font-light text-sm md:text-base leading-relaxed">
+            This Privacy Policy may evolve periodically as we expand simulated features. For any inquiries regarding your data mapping, contact our simulation engineers directly at <a href="mailto:pigeon.software.2012@gmail.com" class="text-white underline decoration-white/30 hover:decoration-white transition-colors">pigeon.software.2012@gmail.com</a>.
+          </p>
+        </section>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="relative z-10 pt-8 pb-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between w-full max-w-7xl mx-auto px-6 text-white/40 text-xs font-body">
+    <div class="mb-4 md:mb-0">&copy; 2026 Stokk App. All rights reserved.</div>
+    <div class="flex gap-6">
+      <a href="index.html" class="hover:text-white transition-colors">Home</a>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
