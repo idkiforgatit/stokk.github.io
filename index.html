@@ -3,966 +3,207 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta
-    name="description"
-    content="Privacy Policy for Stokk, a paper-trading app that lets users practice trading with simulated money."
-  >
-  <title>Stokk Privacy Policy</title>
+  <title>VEX - Shaping Tomorrow</title>
+
+  <!-- Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
   <style>
-    :root {
-      --bg: #0a0e17;
-      --bg-soft: #111822;
-      --panel: #16202d;
-      --line: rgba(45, 61, 80, 0.6);
-      --line-strong: rgba(0, 255, 157, 0.2);
-      --text: #f0f4f8;
-      --muted: #8b9eb5;
-      --soft: #5b748f;
-      
-      --neon-green: #00ff9d;
-      --neon-blue: #00e5ff;
-      --red: #ff3366;
-      
-      --glow-green: 0 0 10px rgba(0, 255, 157, 0.4), 0 0 20px rgba(0, 255, 157, 0.2);
-      --glow-blue: 0 0 10px rgba(0, 229, 255, 0.4), 0 0 20px rgba(0, 229, 255, 0.2);
-      
-      --max: 1280px;
-      --content: 1120px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
+      background-color: black;
+      color: white;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       margin: 0;
-      min-height: 100vh;
-      color: var(--text);
-      font-family: "Manrope", sans-serif;
-      background-color: var(--bg);
-      background-image: 
-        linear-gradient(rgba(0, 255, 157, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 255, 157, 0.03) 1px, transparent 1px);
-      background-size: 30px 30px;
-      letter-spacing: 0.01em;
+      padding: 0;
+      overflow-x: hidden;
     }
 
-    body::before {
-      content: '';
+    /* Video Background */
+    #bg-video {
       position: absolute;
-      top: 0; left: 0; right: 0; height: 100vh;
-      background: radial-gradient(circle at 50% -20%, rgba(0, 229, 255, 0.15), transparent 70%);
-      pointer-events: none;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
       z-index: -1;
     }
 
-    a {
-      color: inherit;
-      transition: all 0.2s ease;
-    }
-
-    .shell {
-      width: min(100%, var(--max));
-      margin: 0 auto;
+    /* Liquid Glass CSS */
+    .liquid-glass {
+      background: rgba(0, 0, 0, 0.4);
+      background-blend-mode: luminosity;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: none;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
       position: relative;
-      z-index: 1;
+      overflow: hidden;
+    }
+    .liquid-glass::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1.4px;
+      background: linear-gradient(180deg,
+        rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 20%,
+        rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
+        rgba(255,255,255,0.1) 80%, rgba(255,255,255,0.3) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
     }
 
-    .topbar {
-      border-bottom: 1px solid var(--line);
-      background: rgba(10, 14, 23, 0.7);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    /* Fade-in Utility */
+    .fade-in {
+      opacity: 0;
+      transition-property: opacity;
+      transition-timing-function: ease-in-out;
+    }
+    .fade-in.is-visible {
+      opacity: 1;
     }
 
-    .topbar-inner,
-    .hero,
-    .overview,
-    .section,
-    .footer {
-      width: min(calc(100% - 40px), var(--content));
-      margin: 0 auto;
-    }
-
-    .topbar-inner {
-      min-height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      font-family: "Space Grotesk", sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      color: var(--text);
-    }
-
-    .brand-mark {
-      width: 20px;
-      height: 20px;
-      border-radius: 4px;
-      background: linear-gradient(135deg, var(--neon-green), var(--neon-blue));
-      box-shadow: var(--glow-green);
-      animation: pulse 3s infinite alternate;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 10px rgba(0, 255, 157, 0.2); }
-      100% { box-shadow: 0 0 20px rgba(0, 255, 157, 0.5), 0 0 30px rgba(0, 229, 255, 0.3); }
-    }
-
-    .brand span {
-      font-size: 1.5rem;
-      text-transform: uppercase;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .nav a:not(.cta) {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 8px 16px;
-      border-radius: 20px;
-      transition: all 0.2s ease;
-      font-family: "Space Grotesk", sans-serif;
-    }
-
-    .nav a:not(.cta):hover,
-    .nav a:not(.cta):focus-visible {
-      color: var(--neon-blue);
-      background: rgba(0, 229, 255, 0.08);
-      text-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
-    }
-
-    .nav .cta {
-      padding: 10px 20px;
-      background: rgba(0, 255, 157, 0.05);
-      color: var(--neon-green);
-      border: 1px solid rgba(0, 255, 157, 0.4);
-      border-radius: 24px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      text-decoration: none;
-      font-family: "Space Grotesk", sans-serif;
-      box-shadow: 0 0 15px rgba(0, 255, 157, 0.1);
-      transition: all 0.3s ease;
-      margin-left: 8px;
-    }
-
-    .nav .cta:hover {
-      background: rgba(0, 255, 157, 0.15);
-      border-color: var(--neon-green);
-      box-shadow: var(--glow-green);
-      color: #fff;
-    }
-
-    .hero {
-      padding: 110px 0 60px;
-    }
-
-    .eyebrow {
-      color: var(--neon-blue);
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
+    /* Animated Character */
+    .char-span {
       display: inline-block;
-      padding: 6px 14px;
-      border: 1px solid rgba(0, 229, 255, 0.3);
-      border-radius: 6px;
-      background: rgba(0, 229, 255, 0.05);
-      box-shadow: 0 0 10px rgba(0, 229, 255, 0.1);
+      opacity: 0;
+      transform: translateX(-18px);
+      transition: opacity 500ms ease, transform 500ms ease;
     }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
-      gap: 60px;
-      align-items: center;
-    }
-
-    .hero h1 {
-      max-width: 12ch;
-      margin: 0 0 24px;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(3rem, 7vw, 5.5rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      font-weight: 700;
-      background: linear-gradient(to right, #fff, #9eb0c6);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-copy p {
-      max-width: 55ch;
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-
-    .hero-meta {
-      padding: 32px;
-      background: var(--bg-soft);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      display: grid;
-      gap: 20px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-    }
-
-    .hero-meta::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
-    }
-
-    .meta-row {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 16px;
-      align-items: start;
-    }
-
-    .meta-row dt {
-      color: var(--soft);
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-family: "Space Grotesk", sans-serif;
-    }
-
-    .meta-row dd {
-      margin: 0;
-      color: var(--text);
-      line-height: 1.6;
-      font-size: 0.95rem;
-    }
-
-    .meta-row dd a {
-      color: var(--neon-blue);
-      text-decoration: none;
-    }
-    .meta-row dd a:hover {
-      text-decoration: underline;
-      text-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
-    }
-
-    .overview {
-      padding: 0;
-      margin: 60px auto;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-    }
-
-    .overview-grid {
-      display: grid;
-      grid-template-columns: 320px 1fr;
-    }
-
-    .overview-label {
-      padding: 40px;
-      border-right: 1px solid var(--line);
-      background: rgba(0, 0, 0, 0.2);
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .overview-label small {
-      color: var(--neon-blue);
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-family: "Space Grotesk", sans-serif;
-    }
-
-    .overview-label h2 {
-      margin: 0;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.1;
-      letter-spacing: -0.04em;
-      font-weight: 700;
-      font-family: "Space Grotesk", sans-serif;
-    }
-
-    .overview-list {
-      padding: 0 40px;
-    }
-
-    .rule {
-      display: grid;
-      grid-template-columns: 32px 1fr;
-      gap: 20px;
-      padding: 35px 0;
-      border-bottom: 1px solid var(--line);
-      align-items: start;
-    }
-
-    .rule:last-child {
-      border-bottom: 0;
-    }
-
-    .rule-mark {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      font-size: 1.2rem;
-      font-weight: 700;
-    }
-
-    .rule-mark.good {
-      color: #000;
-      background: var(--neon-green);
-      box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
-    }
-
-    .rule-mark.warn {
-      color: #000;
-      background: var(--red);
-      box-shadow: 0 0 15px rgba(255, 51, 102, 0.4);
-    }
-
-    .rule strong {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: -0.01em;
-    }
-
-    .rule p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .section {
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 0;
-      margin-bottom: 40px;
-      background: var(--bg-soft);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      overflow: hidden;
-      position: relative;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    }
-
-    .section:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-      border-color: rgba(0, 229, 255, 0.3);
-    }
-
-    .section::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 4px; height: 100%;
-      background: var(--line);
-      transition: background 0.3s ease;
-    }
-    .section:hover::after {
-      background: var(--neon-blue);
-      box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
-    }
-
-    .section-label {
-      padding: 40px;
-      border-right: 1px solid var(--line);
-      background: rgba(0, 0, 0, 0.15);
-    }
-
-    .section-label small {
-      display: inline-block;
-      margin-bottom: 16px;
-      color: var(--bg);
-      background: var(--soft);
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.15em;
-      font-family: "Space Grotesk", sans-serif;
-      transition: all 0.3s ease;
-    }
-
-    .section:hover .section-label small {
-      background: var(--neon-blue);
-      box-shadow: var(--glow-blue);
-      color: var(--bg);
-    }
-
-    .section-label h2 {
-      margin: 0;
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      font-weight: 700;
-      font-family: "Space Grotesk", sans-serif;
-    }
-
-    .section-body {
-      padding: 40px;
-    }
-
-    .section-body p {
-      margin: 0 0 24px;
-      max-width: 68ch;
-      color: var(--muted);
-      line-height: 1.8;
-      font-size: 1.05rem;
-    }
-
-    .section-body p:last-child {
-      margin-bottom: 0;
-    }
-
-    .subhead {
-      margin: 48px 0 20px;
-      color: var(--text);
-      font-size: 1.15rem;
-      font-weight: 700;
-      font-family: "Space Grotesk", sans-serif;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 12px;
-      position: relative;
-    }
-    
-    .subhead::after {
-      content: '';
-      position: absolute;
-      bottom: -1px; left: 0;
-      width: 40px;
-      height: 1px;
-      background: var(--neon-green);
-      box-shadow: var(--glow-green);
-    }
-
-    .plain-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      max-width: 72ch;
-    }
-
-    .plain-list li {
-      padding: 18px 0;
-      border-bottom: 1px dashed var(--line);
-      color: var(--muted);
-      line-height: 1.6;
-      position: relative;
-      padding-left: 28px;
-    }
-
-    .plain-list li::before {
-      content: '>';
-      position: absolute;
-      left: 0;
-      color: var(--neon-green);
-      font-family: "Space Grotesk", sans-serif;
-      font-weight: 700;
-      top: 18px;
-    }
-
-    .plain-list li:last-child {
-      border-bottom: none;
-    }
-
-    .plain-list strong {
-      color: var(--text);
-      font-weight: 700;
-    }
-
-    .footer {
-      margin-top: 80px;
-      padding: 60px 0 80px;
-      border-top: 1px solid var(--line);
-      background: radial-gradient(ellipse at 50% 100%, rgba(0, 229, 255, 0.03), transparent 60%);
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 320px 1fr;
-    }
-
-    .footer-label {
-      padding-right: 40px;
-    }
-
-    .footer-label small {
-      display: block;
-      margin-bottom: 16px;
-      color: var(--neon-green);
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      font-family: "Space Grotesk", sans-serif;
-    }
-
-    .footer-label h2 {
-      margin: 0;
-      font-size: clamp(2rem, 3vw, 2.5rem);
-      line-height: 1.1;
-      letter-spacing: -0.04em;
-      font-family: "Space Grotesk", sans-serif;
-    }
-
-    .footer-body {
-      padding-left: 40px;
-      border-left: 1px solid var(--line);
-    }
-
-    .footer-body p {
-      max-width: 60ch;
-      margin: 0 0 20px;
-      color: var(--muted);
-      line-height: 1.8;
-      font-size: 1.05rem;
-    }
-
-    .footer-body a {
-      color: var(--neon-blue);
-      text-decoration: none;
-      font-weight: 600;
-      padding-bottom: 2px;
-      border-bottom: 1px solid rgba(0, 229, 255, 0.3);
-      transition: all 0.2s;
-    }
-    .footer-body a:hover {
-      border-bottom-color: var(--neon-blue);
-      text-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
-    }
-
-    .tiny {
-      color: var(--soft) !important;
-      font-size: 0.85rem !important;
-      margin-top: 30px !important;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .overview-grid,
-      .section,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .section::after {
-        width: 100%; height: 4px;
-        top: 0; left: 0;
-      }
-
-      .overview-label,
-      .section-label,
-      .footer-label {
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-        padding: 30px;
-      }
-
-      .footer-body {
-        border-left: 0;
-        padding-left: 0;
-        padding-top: 30px;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .topbar-inner,
-      .hero,
-      .overview,
-      .section,
-      .footer {
-        width: min(calc(100% - 32px), var(--content));
-      }
-
-      .topbar-inner {
-        min-height: 70px;
-        flex-wrap: wrap;
-        padding: 15px 0;
-      }
-
-      .nav {
-        width: 100%;
-        justify-content: flex-start;
-        gap: 8px;
-        margin-top: 10px;
-      }
-      
-      .nav .cta {
-        margin-left: 0;
-      }
-
-      .hero {
-        padding-top: 50px;
-        padding-bottom: 40px;
-      }
-
-      .overview-label,
-      .section-label,
-      .section-body,
-      .overview-list {
-        padding: 24px;
-      }
-      
-      .hero-meta {
-        padding: 24px;
-      }
-      .meta-row {
-        grid-template-columns: 1fr;
-        gap: 4px;
-      }
+    .char-span.is-visible {
+      opacity: 1;
+      transform: translateX(0);
     }
   </style>
 </head>
-<body>
-  <div class="shell">
-    <header class="topbar">
-      <div class="topbar-inner">
-        <a class="brand" href="#top" id="top">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <span>STOKK</span>
+<body class="font-sans antialiased flex flex-col min-h-screen">
+
+  <video id="bg-video" autoplay loop muted playsinline>
+    <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260403_050628_c4e32401-fab4-4a27-b7a8-6e9291cd5959.mp4" type="video/mp4">
+  </video>
+
+  <!-- Navbar -->
+  <div class="w-full px-6 md:px-12 lg:px-16 pt-6 z-10 w-full relative">
+    <div class="liquid-glass rounded-xl px-4 py-2 flex items-center justify-between">
+      <!-- Left: Logo text or image -->
+      <div class="flex items-center gap-3">
+        <img src="logo.png" alt="Logo" class="h-8 w-auto rounded object-contain" onerror="this.src='../public/logo.png'; this.onerror=null;">
+        <span class="text-2xl font-semibold tracking-tight">VEX</span>
+      </div>
+      
+      <!-- Center: Links -->
+      <nav class="hidden md:flex gap-8">
+        <a href="#" class="text-sm text-gray-300 hover:text-white transition-colors duration-200">Story</a>
+        <a href="#" class="text-sm text-gray-300 hover:text-white transition-colors duration-200">Investing</a>
+        <a href="#" class="text-sm text-gray-300 hover:text-white transition-colors duration-200">Building</a>
+        <a href="#" class="text-sm text-gray-300 hover:text-white transition-colors duration-200">Advisory</a>
+      </nav>
+
+      <!-- Right: Button -->
+      <div>
+        <a href="#" class="bg-white text-black px-6 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 transition-colors duration-200">
+          Start a Chat
         </a>
-
-        <nav class="nav" aria-label="Page navigation">
-          <a href="#overview">Overview</a>
-          <a href="#collect">Data</a>
-          <a href="#use">Use</a>
-          <a href="#rights">Rights</a>
-          <a class="cta" href="mailto:pigeon.software.2012@gmail.com">Contact</a>
-        </nav>
       </div>
-    </header>
-
-    <section class="hero">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow">Privacy Policy</div>
-          <h1>Modern paper trading, explained clearly.</h1>
-          <p>
-            Stokk lets users practice trading with simulated money. This policy explains what information the
-            app handles, what remains on the device, what may pass through third-party providers for live
-            prices or ads, and what choices users have.
-          </p>
-        </div>
-
-        <dl class="hero-meta">
-          <div class="meta-row">
-            <dt>Effective</dt>
-            <dd>April 7, 2026</dd>
-          </div>
-          <div class="meta-row">
-            <dt>Contact</dt>
-            <dd><a href="mailto:pigeon.software.2012@gmail.com">pigeon.software.2012@gmail.com</a></dd>
-          </div>
-          <div class="meta-row">
-            <dt>Scope</dt>
-            <dd>Stokk mobile and web experiences that provide simulated trading with fake money.</dd>
-          </div>
-        </dl>
-      </div>
-    </section>
-
-    <section class="overview" id="overview">
-      <div class="overview-grid">
-        <div class="overview-label">
-          <div aria-hidden="true">[]</div>
-          <h2>Ground rules</h2>
-          <small>The short version before the full policy.</small>
-        </div>
-
-        <div class="overview-list">
-          <div class="rule">
-            <span class="rule-mark good">+</span>
-            <div>
-              <strong>Stokk is for practice, not real investing.</strong>
-              <p>
-                The balances, positions, rewards, and trade history inside Stokk are simulated. The app does
-                not hold money, open brokerage accounts, or execute real trades.
-              </p>
-            </div>
-          </div>
-
-          <div class="rule">
-            <span class="rule-mark good">+</span>
-            <div>
-              <strong>Most core app state is stored locally.</strong>
-              <p>
-                Your username, locally generated player ID, paper portfolio, streaks, and in-app progression
-                are primarily stored on your device so the app can reopen in the same state.
-              </p>
-            </div>
-          </div>
-
-          <div class="rule">
-            <span class="rule-mark warn">-</span>
-            <div>
-              <strong>Third-party services may still receive technical data.</strong>
-              <p>
-                Live market data requests, ad delivery, and operating-system sharing features may involve
-                outside providers that handle IP address, device metadata, ad identifiers, or diagnostics
-                under their own policies.
-              </p>
-            </div>
-          </div>
-
-          <div class="rule">
-            <span class="rule-mark good">+</span>
-            <div>
-              <strong>You can contact us directly for privacy questions.</strong>
-              <p>
-                The current contact address for this policy is
-                <a href="mailto:pigeon.software.2012@gmail.com">pigeon.software.2012@gmail.com</a>.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="collect">
-      <div class="section-label">
-        <small>01</small>
-        <h2>Information Stokk handles</h2>
-      </div>
-
-      <div class="section-body">
-        <p>
-          We try to keep Stokk lightweight. For core play, the app does not describe itself as requiring
-          real-world banking credentials, brokerage credentials, or payment-card details. Instead, the app
-          mainly uses information needed to remember your simulated trading setup and to load supported market
-          data.
-        </p>
-        <p>
-          When you first use Stokk, the app may store a username you choose and a locally generated player ID.
-          The app may also store simulated account information such as your starting fake balance, current
-          paper holdings, trade history, streak data, unlocked cosmetics or rewards, worker state, and other
-          in-app progress so that the app can restore your experience the next time you open it.
-        </p>
-        <p>
-          To show live or near-live price information, Stokk requests data from third-party market-data
-          providers. Those providers may receive technical request information such as your IP address,
-          general device or browser details, request timing, and other network metadata that is commonly
-          processed when an app fetches remote content.
-        </p>
-        <p>
-          If advertising is enabled in a given build of Stokk, ad-related software development kits or
-          services may also process device identifiers, ad identifiers, diagnostics, approximate location
-          inferred from IP, interaction events, and fraud-prevention signals in order to load, measure, or
-          secure banner ads, app-open ads, or rewarded ads.
-        </p>
-
-        <div class="subhead">Examples of information involved in the current experience</div>
-        <ul class="plain-list">
-          <li><strong>Profile data:</strong> a chosen username and a locally generated player ID.</li>
-          <li><strong>Simulated trading data:</strong> fake balance, holdings, trade history, and reward progression.</li>
-          <li><strong>Technical request data:</strong> information sent when the app asks remote services for market prices.</li>
-          <li><strong>Ad-related data:</strong> identifiers and diagnostics processed by ad providers where ads are enabled.</li>
-          <li><strong>Support communications:</strong> anything you voluntarily send us by email.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" id="use">
-      <div class="section-label">
-        <small>02</small>
-        <h2>How the information is used</h2>
-      </div>
-
-      <div class="section-body">
-        <p>
-          We use information to operate the app users expect to see. That includes creating and restoring
-          your local paper-trading profile, maintaining simulated balances and holdings, showing price changes
-          and charts, supporting in-app reward systems, and making optional features such as share actions or
-          ad-supported rewards function correctly.
-        </p>
-        <p>
-          Stokk may also rely on technical logs, request outcomes, and provider diagnostics to keep the app
-          functioning, investigate failures, reduce abuse, and understand whether remote requests or ad loads
-          are working as intended.
-        </p>
-
-        <div class="subhead">We may use information to:</div>
-        <ul class="plain-list">
-          <li><strong>Run the simulated trading experience</strong> and remember your state across sessions on the device.</li>
-          <li><strong>Fetch market data</strong> so charts, price moves, and supported assets can appear in the app.</li>
-          <li><strong>Support monetization features</strong> such as rewarded or banner ads where included.</li>
-          <li><strong>Respond to support messages</strong> and review privacy-related questions or requests.</li>
-          <li><strong>Protect the service</strong> by investigating misuse, technical abuse, or operational issues.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" id="sharing">
-      <div class="section-label">
-        <small>03</small>
-        <h2>Sharing and third parties</h2>
-      </div>
-
-      <div class="section-body">
-        <p>
-          We do not describe Stokk as selling a user's paper-trading history as a product. Even so, Stokk may
-          involve third parties in order to provide core remote functionality or monetization. Market-data
-          services may receive requests when the app loads prices. Ad providers may process data when ads are
-          requested or displayed. If you choose to use a device share sheet, your device platform may process
-          the content you choose to share.
-        </p>
-        <p>
-          We may also disclose information when reasonably necessary to comply with law, enforce our rights,
-          investigate abuse, or protect users, developers, or the public.
-        </p>
-
-        <div class="subhead">Third-party categories currently relevant to Stokk</div>
-        <ul class="plain-list">
-          <li><strong>Market-data providers</strong> used to retrieve supported price and chart information.</li>
-          <li><strong>Advertising providers</strong> used to deliver banner, app-open, or rewarded ads.</li>
-          <li><strong>Platform-level sharing tools</strong> when you intentionally share app content.</li>
-          <li><strong>Email providers</strong> when you contact us directly for support or privacy matters.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" id="retention">
-      <div class="section-label">
-        <small>04</small>
-        <h2>Retention and storage</h2>
-      </div>
-
-      <div class="section-body">
-        <p>
-          Much of the core Stokk experience is currently local-first. That means the profile and gameplay
-          information described above may remain on your device until you clear the app's stored data, use an
-          in-app reset function if available, or uninstall the app. Because local storage is part of how the
-          app remembers your progress, deleting app data may also remove your simulated holdings, history, and
-          unlocks from that device.
-        </p>
-        <p>
-          Third-party providers such as ad services, hosting layers, and market-data services may keep their
-          own logs, records, or security data for their own operational, contractual, legal, fraud-prevention,
-          and analytics purposes. Their retention timelines are controlled by them.
-        </p>
-      </div>
-    </section>
-
-    <section class="section" id="rights">
-      <div class="section-label">
-        <small>05</small>
-        <h2>Your choices and rights</h2>
-      </div>
-
-      <div class="section-body">
-        <p>
-          Depending on your device, platform, and local law, you may have choices about how certain data is
-          handled. For example, you may be able to reset local app data, control ad-related settings on your
-          device, disable certain permissions, or choose not to use optional sharing features.
-        </p>
-        <p>
-          If you want to ask for access, deletion, clarification, or another privacy-related action, contact
-          us at <a href="mailto:pigeon.software.2012@gmail.com">pigeon.software.2012@gmail.com</a>. We may
-          need enough information to understand the request and confirm that we are responding appropriately.
-        </p>
-
-        <div class="subhead">In practice, you can usually:</div>
-        <ul class="plain-list">
-          <li><strong>Clear local data</strong> by resetting app storage or reinstalling the app.</li>
-          <li><strong>Limit ad tracking</strong> through device settings where your platform supports that control.</li>
-          <li><strong>Avoid optional sharing features</strong> if you do not want to send content through your OS share sheet.</li>
-          <li><strong>Email us directly</strong> if you want privacy help or need clarification on this policy.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" id="security">
-      <div class="section-label">
-        <small>06</small>
-        <h2>Security, children, and updates</h2>
-      </div>
-
-      <div class="section-body">
-        <p>
-          We use reasonable measures appropriate to the current scope of Stokk, but no app or transmission
-          method can guarantee absolute security. Users should avoid sending especially sensitive personal,
-          financial, or account information through casual support channels unless clearly requested in a
-          secure context.
-        </p>
-        <p>
-          If you are a parent or guardian and believe a child sent personal information through Stokk, please
-          contact us so we can review the issue. We may update this policy over time if Stokk changes. If the
-          app later adds cloud sync, sign-in systems, analytics, payments, social features, or new third-party
-          integrations, this page should be revised to reflect those changes.
-        </p>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="footer-grid">
-        <div class="footer-label">
-          <small>Contact</small>
-          <h2>Questions or requests</h2>
-        </div>
-
-        <div class="footer-body">
-          <p>
-            For privacy questions, data requests, or policy clarifications, contact
-            <a href="mailto:pigeon.software.2012@gmail.com">pigeon.software.2012@gmail.com</a>.
-          </p>
-          <p class="tiny">
-            This page is intended to describe the current Stokk experience as of April 7, 2026. If the app's
-            data flows change materially, this policy should be updated with a new effective date.
-          </p>
-        </div>
-      </div>
-    </footer>
+    </div>
   </div>
+
+  <!-- Hero Content -->
+  <div class="flex-1 flex flex-col justify-end px-6 md:px-12 lg:px-16 pb-12 lg:pb-16 z-10 relative mt-auto">
+    <div class="lg:grid lg:grid-cols-2 lg:items-end w-full">
+      
+      <!-- Left Column -->
+      <div class="mb-8 lg:mb-0">
+        <h1 id="animated-heading" class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal mb-4 text-white" style="letter-spacing: -0.04em;"></h1>
+        
+        <p class="fade-in text-base md:text-lg text-gray-300 mb-5 max-w-xl" style="transition-duration: 1000ms;" data-delay="800">
+          We back visionaries and craft ventures that define what comes next.
+        </p>
+
+        <div class="fade-in flex flex-wrap gap-4" style="transition-duration: 1000ms;" data-delay="1200">
+          <a href="#" class="bg-white text-black px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+            Start a Chat
+          </a>
+          <a href="#" class="liquid-glass border border-white/20 px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-black transition-colors duration-300 text-white">
+            Explore Now
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="flex items-end justify-start lg:justify-end">
+        <div class="fade-in liquid-glass border border-white/20 px-6 py-3 rounded-xl" style="transition-duration: 1000ms;" data-delay="1400">
+          <p class="text-lg md:text-xl lg:text-2xl font-light text-white">
+            Investing. Building. Advisory.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Setup Text Animation for Heading
+      const headingContainer = document.getElementById('animated-heading');
+      const textLines = ["Shaping tomorrow", "with vision and action."];
+      
+      let initialDelay = 200;
+      const charDelay = 30;
+
+      textLines.forEach((line, lineIndex) => {
+        const lineDiv = document.createElement('div');
+        for (let charIndex = 0; charIndex < line.length; charIndex++) {
+          const char = line[charIndex];
+          const span = document.createElement('span');
+          span.className = 'char-span';
+          span.textContent = char === ' ' ? '\u00A0' : char;
+          
+          // Spec formula: (lineIndex * lineLength * charDelay) + (charIndex * charDelay)
+          const lineLength = textLines[lineIndex].length;
+          const delay = initialDelay + (lineIndex * lineLength * charDelay) + (charIndex * charDelay);
+          
+          span.style.transitionDelay = `${delay}ms`;
+          
+          // Trigger animation
+          setTimeout(() => {
+            span.classList.add('is-visible');
+          }, 10);
+          
+          lineDiv.appendChild(span);
+        }
+        headingContainer.appendChild(lineDiv);
+      });
+
+      // Setup Fade-in Elements
+      const fadeElements = document.querySelectorAll('.fade-in');
+      fadeElements.forEach(el => {
+        const delay = parseInt(el.getAttribute('data-delay') || '0', 10);
+        setTimeout(() => {
+          el.classList.add('is-visible');
+        }, delay);
+      });
+    });
+  </script>
 </body>
 </html>
