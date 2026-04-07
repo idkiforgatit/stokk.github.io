@@ -5,35 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta
     name="description"
-    content="Privacy Policy for Stokk, a paper-trading app that lets users practice with simulated money while following supported market prices."
+    content="Privacy Policy for Stokk, a paper-trading app that lets users practice trading with simulated money."
   >
   <title>Stokk Privacy Policy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
     rel="stylesheet"
   >
   <style>
     :root {
-      --bg: #07111b;
-      --bg-deep: #03080f;
-      --panel: rgba(10, 18, 31, 0.74);
-      --panel-strong: rgba(14, 24, 41, 0.94);
-      --line: rgba(255, 255, 255, 0.1);
-      --text: #f4f7fb;
-      --muted: rgba(244, 247, 251, 0.72);
-      --soft: rgba(244, 247, 251, 0.5);
-      --green: #14d88a;
-      --green-soft: rgba(20, 216, 138, 0.16);
-      --gold: #ffd479;
-      --gold-soft: rgba(255, 212, 121, 0.16);
-      --pink: #ff7db5;
-      --max: 1180px;
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
-      --radius-xl: 32px;
-      --radius-lg: 24px;
-      --radius-md: 18px;
+      --bg: #09070a;
+      --bg-soft: #120f14;
+      --line: rgba(255, 255, 255, 0.08);
+      --line-strong: rgba(255, 255, 255, 0.14);
+      --text: #fbf8fb;
+      --muted: rgba(251, 248, 251, 0.72);
+      --soft: rgba(251, 248, 251, 0.42);
+      --green: #49d49a;
+      --red: #ff7b87;
+      --blue: #4fa2ff;
+      --max: 1280px;
+      --content: 1120px;
     }
 
     * {
@@ -48,27 +42,12 @@
       margin: 0;
       min-height: 100vh;
       color: var(--text);
-      font-family: "Space Grotesk", sans-serif;
+      font-family: "Manrope", sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(20, 216, 138, 0.16), transparent 30%),
-        radial-gradient(circle at 85% 10%, rgba(255, 125, 181, 0.12), transparent 28%),
-        radial-gradient(circle at 50% 120%, rgba(255, 212, 121, 0.12), transparent 28%),
-        linear-gradient(180deg, #0b1624 0%, var(--bg) 42%, var(--bg-deep) 100%);
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-      background-size: 36px 36px;
-      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.56), transparent 90%);
-      pointer-events: none;
-      z-index: 0;
+        radial-gradient(circle at top right, rgba(79, 162, 255, 0.08), transparent 26%),
+        radial-gradient(circle at top left, rgba(73, 212, 154, 0.05), transparent 24%),
+        linear-gradient(180deg, #0b090c 0%, var(--bg) 100%);
+      letter-spacing: -0.01em;
     }
 
     a {
@@ -76,447 +55,417 @@
     }
 
     .shell {
-      position: relative;
-      z-index: 1;
-      width: min(calc(100% - 32px), var(--max));
+      width: min(100%, var(--max));
       margin: 0 auto;
-      padding: 28px 0 72px;
     }
 
     .topbar {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner,
+    .hero,
+    .overview,
+    .section,
+    .footer {
+      width: min(calc(100% - 40px), var(--content));
+      margin: 0 auto;
+    }
+
+    .topbar-inner {
+      min-height: 90px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 24px;
-      padding: 14px 18px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(5, 10, 18, 0.52);
-      backdrop-filter: blur(18px);
-      box-shadow: var(--shadow);
+      gap: 24px;
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 14px;
-      min-width: 0;
-    }
-
-    .mark {
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
+      text-decoration: none;
+      font-family: "Space Grotesk", sans-serif;
       font-weight: 700;
-      letter-spacing: 0.12em;
-      color: #04110b;
-      background:
-        linear-gradient(135deg, #72f2bb 0%, #14d88a 46%, #ffd479 100%);
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.48),
-        0 14px 32px rgba(20, 216, 138, 0.2);
+      letter-spacing: -0.04em;
     }
 
-    .brand-copy {
-      min-width: 0;
+    .brand-mark {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      background: linear-gradient(135deg, var(--green), var(--blue));
+      box-shadow: 0 0 22px rgba(79, 162, 255, 0.24);
     }
 
-    .brand-copy strong,
-    .brand-copy span {
-      display: block;
-    }
-
-    .brand-copy strong {
-      font-size: 0.98rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .brand-copy span {
-      color: var(--soft);
-      font-size: 0.9rem;
-      margin-top: 2px;
+    .brand span {
+      font-size: 1.9rem;
     }
 
     .nav {
       display: flex;
+      align-items: center;
+      gap: 28px;
       flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 10px;
     }
 
     .nav a {
-      padding: 10px 14px;
+      color: var(--soft);
       text-decoration: none;
-      color: var(--muted);
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.03);
-      transition: 160ms ease;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: color 150ms ease;
     }
 
     .nav a:hover,
     .nav a:focus-visible {
       color: var(--text);
-      border-color: rgba(255, 255, 255, 0.16);
-      transform: translateY(-1px);
+    }
+
+    .nav .cta {
+      padding: 15px 24px;
+      background: linear-gradient(135deg, rgba(31, 128, 165, 0.85), rgba(56, 103, 212, 0.85));
+      color: var(--text);
     }
 
     .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 34px;
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background:
-        radial-gradient(circle at 18% 18%, rgba(20, 216, 138, 0.18), transparent 24%),
-        radial-gradient(circle at 82% 16%, rgba(255, 125, 181, 0.16), transparent 24%),
-        linear-gradient(145deg, rgba(15, 28, 44, 0.96), rgba(6, 13, 22, 0.9));
-      box-shadow: var(--shadow);
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto -12% -32% auto;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255, 212, 121, 0.26), transparent 68%);
-      pointer-events: none;
+      padding: 92px 0 52px;
     }
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--muted);
-      letter-spacing: 0.06em;
+      color: var(--soft);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      font-size: 0.78rem;
-    }
-
-    .hero h1 {
-      max-width: 12ch;
-      margin: 18px 0 14px;
-      font-family: "Fraunces", serif;
-      font-size: clamp(2.9rem, 7vw, 5.6rem);
-      line-height: 0.96;
-      letter-spacing: -0.05em;
-    }
-
-    .hero p {
-      max-width: 62ch;
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.8;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.75fr) minmax(280px, 0.95fr);
-      gap: 28px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 48px;
       align-items: end;
     }
 
-    .hero-card {
-      position: relative;
-      padding: 24px;
-      border-radius: 26px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(18px);
+    .hero h1 {
+      max-width: 10ch;
+      margin: 18px 0 18px;
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 0.96;
+      letter-spacing: -0.07em;
+      font-weight: 800;
     }
 
-    .hero-card h2 {
-      margin: 0 0 14px;
-      font-size: 1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--soft);
-    }
-
-    .hero-card ul {
+    .hero-copy p {
+      max-width: 60ch;
       margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 14px;
-    }
-
-    .hero-card li {
-      display: grid;
-      gap: 4px;
-    }
-
-    .hero-card strong {
-      font-size: 1rem;
-    }
-
-    .hero-card span {
       color: var(--muted);
-      line-height: 1.6;
+      font-size: 1.04rem;
+      line-height: 1.9;
     }
 
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 26px;
-    }
-
-    .chip {
-      padding: 11px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--text);
-      font-size: 0.95rem;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.84fr);
-      gap: 24px;
-      margin-top: 24px;
-    }
-
-    .stack {
+    .hero-meta {
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
       display: grid;
       gap: 18px;
     }
 
-    .card {
-      padding: 28px;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--line);
-      background: var(--panel);
-      backdrop-filter: blur(16px);
-      box-shadow: var(--shadow);
+    .meta-row {
+      display: grid;
+      grid-template-columns: 118px 1fr;
+      gap: 12px;
+      align-items: start;
     }
 
-    .section-kicker {
-      margin: 0 0 10px;
-      color: var(--gold);
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
+    .meta-row dt {
+      color: var(--soft);
+      font-size: 0.84rem;
+      font-weight: 700;
       text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
 
-    .card h2 {
+    .meta-row dd {
       margin: 0;
-      font-size: clamp(1.45rem, 3vw, 2rem);
-      line-height: 1.1;
-    }
-
-    .lede {
-      margin: 14px 0 0;
       color: var(--muted);
       line-height: 1.8;
-      font-size: 1rem;
     }
 
-    .split {
+    .overview {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 0;
+    }
+
+    .overview-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 22px;
+      grid-template-columns: 280px 1fr;
+      min-height: 280px;
     }
 
-    .mini {
-      padding: 18px;
-      border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    .overview-label {
+      padding: 28px 34px;
+      border-right: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.015);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
     }
 
-    .mini h3 {
-      margin: 0 0 10px;
+    .overview-label small {
+      color: var(--soft);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .overview-label h2 {
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 3.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      font-weight: 700;
+    }
+
+    .overview-list {
+      padding: 0 36px;
+    }
+
+    .rule {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 14px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: start;
+    }
+
+    .rule:last-child {
+      border-bottom: 0;
+    }
+
+    .rule-mark {
+      display: inline-block;
       font-size: 1rem;
+      line-height: 1.2;
+      padding-top: 3px;
     }
 
-    .mini p,
-    .mini li,
-    .list li {
+    .rule-mark.good {
+      color: var(--green);
+    }
+
+    .rule-mark.warn {
+      color: var(--red);
+    }
+
+    .rule strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .rule p {
+      margin: 0;
       color: var(--muted);
       line-height: 1.75;
     }
 
-    .list {
-      margin: 18px 0 0;
-      padding-left: 18px;
-    }
-
-    .note {
-      margin-top: 18px;
-      padding: 16px 18px;
-      border-radius: 16px;
-      background: var(--green-soft);
-      border: 1px solid rgba(20, 216, 138, 0.24);
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    .warning {
-      background: var(--gold-soft);
-      border-color: rgba(255, 212, 121, 0.26);
-    }
-
-    .sidebar {
+    .section {
       display: grid;
-      gap: 18px;
-      align-content: start;
+      grid-template-columns: 280px 1fr;
+      gap: 0;
+      border-bottom: 1px solid var(--line);
     }
 
-    .sticky {
-      position: sticky;
-      top: 22px;
+    .section:first-of-type {
+      border-top: 1px solid var(--line);
     }
 
-    .summary-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 14px;
+    .section-label {
+      padding: 38px 34px;
+      border-right: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.012);
     }
 
-    .summary-list li {
-      padding: 14px 0 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .summary-list li:first-child {
-      padding-top: 0;
-      border-top: 0;
-    }
-
-    .summary-list strong {
+    .section-label small {
       display: block;
-      margin-bottom: 4px;
-      color: var(--text);
-    }
-
-    .metric-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .metric {
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .metric strong {
-      display: block;
-      font-size: 1.15rem;
-      color: var(--text);
-    }
-
-    .metric span {
-      display: block;
-      margin-top: 6px;
+      margin-bottom: 14px;
       color: var(--soft);
-      line-height: 1.5;
-      font-size: 0.92rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    .contact-box {
-      display: grid;
-      gap: 14px;
-      margin-top: 22px;
-      padding: 20px;
-      border-radius: 20px;
-      background: linear-gradient(140deg, rgba(20, 216, 138, 0.12), rgba(255, 125, 181, 0.12));
-      border: 1px solid rgba(255, 255, 255, 0.12);
+    .section-label h2 {
+      margin: 0;
+      font-size: clamp(1.9rem, 3vw, 2.9rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+      font-weight: 700;
     }
 
-    .contact-box strong {
+    .section-body {
+      padding: 38px 34px 46px;
+    }
+
+    .section-body p {
+      margin: 0 0 20px;
+      max-width: 68ch;
+      color: var(--muted);
+      line-height: 1.9;
       font-size: 1rem;
     }
 
-    .contact-box a {
-      text-decoration-thickness: 2px;
-      text-underline-offset: 0.18em;
+    .section-body p:last-child {
+      margin-bottom: 0;
     }
 
-    .todo {
-      color: var(--gold);
-      font-size: 0.92rem;
-      line-height: 1.6;
+    .subhead {
+      margin: 36px 0 12px;
+      color: var(--text);
+      font-size: 1.05rem;
+      font-weight: 700;
     }
 
-    footer {
-      margin-top: 24px;
-      padding: 24px 28px;
-      border-radius: 24px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.04);
+    .plain-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      max-width: 72ch;
+      border-top: 1px solid var(--line);
+    }
+
+    .plain-list li {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .plain-list strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .footer {
+      padding: 32px 0 72px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 28px;
+    }
+
+    .footer-label {
+      padding-right: 34px;
+      border-right: 1px solid var(--line);
+    }
+
+    .footer-label small {
+      display: block;
+      margin-bottom: 14px;
       color: var(--soft);
-      line-height: 1.7;
-      box-shadow: var(--shadow);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .footer-label h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+    }
+
+    .footer-body {
+      padding-left: 34px;
+    }
+
+    .footer-body p {
+      max-width: 68ch;
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .footer-body a {
+      color: var(--text);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.2em;
+    }
+
+    .tiny {
+      color: var(--soft);
+      font-size: 0.92rem;
     }
 
     @media (max-width: 980px) {
       .hero-grid,
-      .layout,
-      .split {
+      .overview-grid,
+      .section,
+      .footer-grid {
         grid-template-columns: 1fr;
       }
 
-      .sticky {
-        position: static;
+      .overview-label,
+      .section-label,
+      .footer-label {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
       }
 
-      .nav {
-        justify-content: flex-start;
+      .footer-body {
+        padding-left: 0;
+        padding-top: 24px;
       }
     }
 
     @media (max-width: 720px) {
-      .shell {
-        width: min(calc(100% - 20px), var(--max));
-        padding-top: 14px;
-        padding-bottom: 48px;
-      }
-
-      .topbar,
+      .topbar-inner,
       .hero,
-      .card,
-      footer {
-        padding-left: 18px;
-        padding-right: 18px;
+      .overview,
+      .section,
+      .footer {
+        width: min(calc(100% - 24px), var(--content));
       }
 
-      .topbar {
-        border-radius: 28px;
+      .topbar-inner {
+        min-height: 78px;
+      }
+
+      .nav {
+        gap: 16px;
+      }
+
+      .nav a {
+        font-size: 0.8rem;
+      }
+
+      .nav .cta {
+        padding: 11px 16px;
       }
 
       .hero {
-        padding-top: 22px;
-        padding-bottom: 22px;
+        padding-top: 54px;
+        padding-bottom: 36px;
       }
 
-      .hero h1 {
-        max-width: none;
-      }
-
-      .metric-grid {
-        grid-template-columns: 1fr;
+      .overview-label,
+      .section-label,
+      .section-body,
+      .overview-list {
+        padding-left: 18px;
+        padding-right: 18px;
       }
     }
   </style>
@@ -524,314 +473,300 @@
 <body>
   <div class="shell">
     <header class="topbar">
-      <div class="brand">
-        <div class="mark" aria-hidden="true">ST</div>
-        <div class="brand-copy">
-          <strong>Stokk</strong>
-          <span>Paper trading with simulated money</span>
-        </div>
+      <div class="topbar-inner">
+        <a class="brand" href="#top" id="top">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>STOKK</span>
+        </a>
+
+        <nav class="nav" aria-label="Page navigation">
+          <a href="#overview">Overview</a>
+          <a href="#collect">Data</a>
+          <a href="#use">Use</a>
+          <a href="#rights">Rights</a>
+          <a class="cta" href="mailto:pigeon.software.2012@gmail.com">Contact</a>
+        </nav>
       </div>
-      <nav class="nav" aria-label="Policy sections">
-        <a href="#collect">Data We Collect</a>
-        <a href="#use">How We Use It</a>
-        <a href="#choices">Your Choices</a>
-        <a href="#contact">Contact</a>
-      </nav>
     </header>
 
     <section class="hero">
       <div class="hero-grid">
-        <div>
-          <div class="eyebrow">Effective April 7, 2026</div>
-          <h1>Privacy Policy for Stokk</h1>
+        <div class="hero-copy">
+          <div class="eyebrow">Privacy Policy</div>
+          <h1>Modern paper trading, explained clearly.</h1>
           <p>
-            Stokk is a paper-trading app built for practice. It lets you track supported market prices,
-            test ideas, and simulate trades with fake money. This policy explains what information Stokk
-            handles, what stays on your device, where third-party services may come into play, and what
-            choices you have.
+            Stokk lets users practice trading with simulated money. This policy explains what information the
+            app handles, what remains on the device, what may pass through third-party providers for live
+            prices or ads, and what choices users have.
           </p>
-          <div class="chips" aria-label="Privacy highlights">
-            <div class="chip">No real-money trading or custody</div>
-            <div class="chip">Core game progress stored locally</div>
-            <div class="chip">Live market prices from external providers</div>
-            <div class="chip">Ads may use third-party SDKs</div>
-          </div>
         </div>
 
-        <aside class="hero-card" aria-label="Quick read">
-          <h2>At a glance</h2>
-          <ul>
-            <li>
-              <strong>Minimal first-party data</strong>
-              <span>Stokk mainly stores your profile and paper-trading progress on your own device.</span>
-            </li>
-            <li>
-              <strong>Third-party services exist</strong>
-              <span>Live pricing and advertising may involve outside providers with their own policies.</span>
-            </li>
-            <li>
-              <strong>Practice only</strong>
-              <span>Stokk does not open brokerage accounts, hold funds, or execute real trades.</span>
-            </li>
-          </ul>
-        </aside>
+        <dl class="hero-meta">
+          <div class="meta-row">
+            <dt>Effective</dt>
+            <dd>April 7, 2026</dd>
+          </div>
+          <div class="meta-row">
+            <dt>Contact</dt>
+            <dd><a href="mailto:pigeon.software.2012@gmail.com">pigeon.software.2012@gmail.com</a></dd>
+          </div>
+          <div class="meta-row">
+            <dt>Scope</dt>
+            <dd>Stokk mobile and web experiences that provide simulated trading with fake money.</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
-    <main class="layout">
-      <div class="stack">
-        <section class="card" id="overview">
-          <p class="section-kicker">Overview</p>
-          <h2>What Stokk is, and what it is not</h2>
-          <p class="lede">
-            Stokk is designed for learning, testing, and entertainment. The balances, portfolios, streaks,
-            rewards, and trades inside the app are simulated. Stokk is not a bank, broker, investment
-            adviser, money transmitter, or custodial wallet. We do not ask you for brokerage logins, debit
-            card numbers, or other payment credentials in order to use the core simulated trading features.
-          </p>
-          <div class="note">
-            The presence of real or near-real market prices inside the app does not mean that Stokk can
-            place trades or move assets on your behalf. It is practice software.
-          </div>
-        </section>
+    <section class="overview" id="overview">
+      <div class="overview-grid">
+        <div class="overview-label">
+          <div aria-hidden="true">[]</div>
+          <h2>Ground rules</h2>
+          <small>The short version before the full policy.</small>
+        </div>
 
-        <section class="card" id="collect">
-          <p class="section-kicker">Collection</p>
-          <h2>Information Stokk handles</h2>
-          <p class="lede">
-            We aim to keep Stokk lightweight. Most of the information used to make the app work is either
-            stored locally on your device or passed through service providers needed for pricing data,
-            platform sharing, and advertising.
-          </p>
-
-          <div class="split">
-            <article class="mini">
-              <h3>1. Profile information you enter</h3>
-              <p>
-                When you set up Stokk, the app stores the username you choose and a locally generated player
-                ID. This helps the app remember your profile on that device.
-              </p>
-            </article>
-
-            <article class="mini">
-              <h3>2. Local gameplay and portfolio data</h3>
-              <p>
-                Stokk stores simulated account values and progress locally, including items such as paper
-                balance, holdings, trade history, streaks, unlocked items, selected cosmetics, worker state,
-                and similar in-app progress.
-              </p>
-            </article>
-
-            <article class="mini">
-              <h3>3. Market data requests</h3>
-              <p>
-                To show current prices and charts for supported assets, Stokk requests market information
-                from third-party data providers. Those providers may receive technical request data such as
-                IP address, request timing, and device or browser metadata.
-              </p>
-            </article>
-
-            <article class="mini">
-              <h3>4. Advertising-related data</h3>
-              <p>
-                If ads are enabled in your build of Stokk, banner, app-open, or rewarded ad features may use
-                Google Mobile Ads or similar tools. Ad providers may collect device identifiers, diagnostics,
-                approximate location inferred from IP, ad interactions, and fraud-prevention signals under
-                their own privacy terms.
-              </p>
-            </article>
-          </div>
-
-          <ul class="list">
-            <li>Stokk may use your device share sheet if you choose to share in-app content or rewards.</li>
-            <li>We may receive support messages or emails you voluntarily send us.</li>
-            <li>We do not currently describe Stokk as requiring real-name identity checks for basic use.</li>
-          </ul>
-        </section>
-
-        <section class="card" id="use">
-          <p class="section-kicker">Usage</p>
-          <h2>How information is used</h2>
-          <p class="lede">
-            We use information to run the app you expect to see. That includes maintaining your local paper
-            portfolio, loading prices, rendering charts, unlocking rewards, preventing obvious abuse of
-            in-app systems, serving ads where enabled, and responding to support requests.
-          </p>
-          <div class="split">
-            <article class="mini">
-              <h3>Operate the paper-trading experience</h3>
-              <p>
-                This includes remembering your username, simulated balance, positions, trade records, and
-                progression so Stokk can reopen in the same state on your device.
-              </p>
-            </article>
-            <article class="mini">
-              <h3>Deliver live market views</h3>
-              <p>
-                Current prices, price changes, charts, and supported market feeds require requests to outside
-                market-data services.
-              </p>
-            </article>
-            <article class="mini">
-              <h3>Support monetization features</h3>
-              <p>
-                If your version of Stokk includes ads, ad requests and reward completions may be processed
-                through the ad provider to display ads and determine whether a reward was earned.
-              </p>
-            </article>
-            <article class="mini">
-              <h3>Improve reliability</h3>
-              <p>
-                Technical logs, warnings, and service-provider diagnostics may be used to identify errors,
-                availability issues, or abuse patterns.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section class="card" id="sharing">
-          <p class="section-kicker">Sharing</p>
-          <h2>When information may be shared</h2>
-          <p class="lede">
-            We do not sell your paper-trading history as a product. However, some information may be shared
-            with service providers when needed to run features you use.
-          </p>
-          <ul class="list">
-            <li>Market-data providers may receive request metadata when Stokk asks for price or chart data.</li>
-            <li>Advertising providers may process ad-request, device, and interaction data if ads are shown.</li>
-            <li>Platform share tools may process the content you choose to share through your device OS.</li>
-            <li>We may disclose information if required by law, legal process, or to protect rights and safety.</li>
-          </ul>
-          <div class="note warning">
-            Third-party providers control their own systems. Their handling of data is governed by their own
-            notices and policies, not just this page.
-          </div>
-        </section>
-
-        <section class="card" id="retention">
-          <p class="section-kicker">Retention</p>
-          <h2>How long data is kept</h2>
-          <p class="lede">
-            Stokk currently stores much of its core profile and simulated trading state locally on your
-            device until you clear app data, use an in-app reset option if available, or uninstall the app.
-            Third-party providers such as ad or market-data services may keep their own logs for their own
-            operational, security, legal, and analytics purposes.
-          </p>
-          <div class="split">
-            <article class="mini">
-              <h3>Local app data</h3>
-              <p>
-                Username, player ID, simulated holdings, trade history, streaks, and reward state can remain
-                on-device until removed.
-              </p>
-            </article>
-            <article class="mini">
-              <h3>Support messages</h3>
-              <p>
-                If you contact us, we may keep those communications for as long as reasonably needed to
-                resolve the issue and maintain support records.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section class="card" id="choices">
-          <p class="section-kicker">Controls</p>
-          <h2>Your choices and rights</h2>
-          <p class="lede">
-            The controls available to you may depend on your device, platform, and the exact Stokk build you
-            are using. In general, you can take steps such as the following:
-          </p>
-          <ul class="list">
-            <li>Change or reset your local app data by clearing the app's stored data or reinstalling the app.</li>
-            <li>Limit ad tracking or reset your advertising identifier through supported device settings.</li>
-            <li>Choose not to use optional sharing features.</li>
-            <li>Contact us if you want to ask about data access, deletion, or policy questions.</li>
-          </ul>
-          <div class="note">
-            If Stokk later adds cloud accounts, sync, social profiles, or competitive leaderboards, this
-            policy should be updated to reflect the new data flows and account controls.
-          </div>
-        </section>
-
-        <section class="card" id="security">
-          <p class="section-kicker">Security</p>
-          <h2>Security, children, and policy changes</h2>
-          <p class="lede">
-            We use reasonable steps appropriate to a lightweight app of this type, but no service can promise
-            absolute security. If you are a parent or guardian and believe a child submitted personal
-            information through Stokk, contact us so we can review the issue. We may update this policy as
-            the app evolves, including if new features such as accounts, sync, analytics, or additional
-            monetization tools are introduced.
-          </p>
-          <ul class="list">
-            <li>Stokk is intended for simulated learning and testing, not real investing activity.</li>
-            <li>Users should avoid sharing sensitive financial or identity data through support channels.</li>
-            <li>Material updates should be reflected by changing the effective date on this page.</li>
-          </ul>
-        </section>
-      </div>
-
-      <aside class="sidebar">
-        <div class="card sticky">
-          <p class="section-kicker">Quick Summary</p>
-          <h2>Short version</h2>
-          <ul class="summary-list">
-            <li>
-              <strong>Practice, not brokerage</strong>
-              Stokk uses fake money and simulated positions. It is not a real trading platform.
-            </li>
-            <li>
-              <strong>Local-first app state</strong>
-              Core profile and progress are primarily stored on the device rather than as an online account.
-            </li>
-            <li>
-              <strong>Outside providers still matter</strong>
-              Live price feeds and advertising features can involve third-party services.
-            </li>
-            <li>
-              <strong>No payment details required for core use</strong>
-              We do not describe Stokk as needing bank or card details to create a paper portfolio.
-            </li>
-          </ul>
-
-          <div class="metric-grid" aria-label="Policy facts">
-            <div class="metric">
-              <strong>1 device</strong>
-              <span>Local state is tied mainly to the device storing it.</span>
-            </div>
-            <div class="metric">
-              <strong>0 real funds</strong>
-              <span>Balances inside the app are simulated for testing and practice.</span>
-            </div>
-            <div class="metric">
-              <strong>Live prices</strong>
-              <span>Market data may be requested from outside providers.</span>
-            </div>
-            <div class="metric">
-              <strong>Ad supported</strong>
-              <span>Some builds may show banner, app-open, or rewarded ads.</span>
-            </div>
-          </div>
-
-          <div class="contact-box" id="contact">
-            <strong>Contact</strong>
+        <div class="overview-list">
+          <div class="rule">
+            <span class="rule-mark good">+</span>
             <div>
-              Email:
-              <a href="mailto:replace-with-your-email@example.com">replace-with-your-email@example.com</a>
+              <strong>Stokk is for practice, not real investing.</strong>
+              <p>
+                The balances, positions, rewards, and trade history inside Stokk are simulated. The app does
+                not hold money, open brokerage accounts, or execute real trades.
+              </p>
             </div>
-            <div class="todo">
-              Replace the contact email above before publishing this page publicly.
+          </div>
+
+          <div class="rule">
+            <span class="rule-mark good">+</span>
+            <div>
+              <strong>Most core app state is stored locally.</strong>
+              <p>
+                Your username, locally generated player ID, paper portfolio, streaks, and in-app progression
+                are primarily stored on your device so the app can reopen in the same state.
+              </p>
+            </div>
+          </div>
+
+          <div class="rule">
+            <span class="rule-mark warn">-</span>
+            <div>
+              <strong>Third-party services may still receive technical data.</strong>
+              <p>
+                Live market data requests, ad delivery, and operating-system sharing features may involve
+                outside providers that handle IP address, device metadata, ad identifiers, or diagnostics
+                under their own policies.
+              </p>
+            </div>
+          </div>
+
+          <div class="rule">
+            <span class="rule-mark good">+</span>
+            <div>
+              <strong>You can contact us directly for privacy questions.</strong>
+              <p>
+                The current contact address for this policy is
+                <a href="mailto:pigeon.software.2012@gmail.com">pigeon.software.2012@gmail.com</a>.
+              </p>
             </div>
           </div>
         </div>
-      </aside>
-    </main>
+      </div>
+    </section>
 
-    <footer>
-      This privacy policy is provided for the current Stokk experience as reflected in the app code available
-      on April 7, 2026. If you add cloud sync, authentication, payments, social features, analytics, or new
-      third-party SDKs, revisit this page before release.
+    <section class="section" id="collect">
+      <div class="section-label">
+        <small>01</small>
+        <h2>Information Stokk handles</h2>
+      </div>
+
+      <div class="section-body">
+        <p>
+          We try to keep Stokk lightweight. For core play, the app does not describe itself as requiring
+          real-world banking credentials, brokerage credentials, or payment-card details. Instead, the app
+          mainly uses information needed to remember your simulated trading setup and to load supported market
+          data.
+        </p>
+        <p>
+          When you first use Stokk, the app may store a username you choose and a locally generated player ID.
+          The app may also store simulated account information such as your starting fake balance, current
+          paper holdings, trade history, streak data, unlocked cosmetics or rewards, worker state, and other
+          in-app progress so that the app can restore your experience the next time you open it.
+        </p>
+        <p>
+          To show live or near-live price information, Stokk requests data from third-party market-data
+          providers. Those providers may receive technical request information such as your IP address,
+          general device or browser details, request timing, and other network metadata that is commonly
+          processed when an app fetches remote content.
+        </p>
+        <p>
+          If advertising is enabled in a given build of Stokk, ad-related software development kits or
+          services may also process device identifiers, ad identifiers, diagnostics, approximate location
+          inferred from IP, interaction events, and fraud-prevention signals in order to load, measure, or
+          secure banner ads, app-open ads, or rewarded ads.
+        </p>
+
+        <div class="subhead">Examples of information involved in the current experience</div>
+        <ul class="plain-list">
+          <li><strong>Profile data:</strong> a chosen username and a locally generated player ID.</li>
+          <li><strong>Simulated trading data:</strong> fake balance, holdings, trade history, and reward progression.</li>
+          <li><strong>Technical request data:</strong> information sent when the app asks remote services for market prices.</li>
+          <li><strong>Ad-related data:</strong> identifiers and diagnostics processed by ad providers where ads are enabled.</li>
+          <li><strong>Support communications:</strong> anything you voluntarily send us by email.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="use">
+      <div class="section-label">
+        <small>02</small>
+        <h2>How the information is used</h2>
+      </div>
+
+      <div class="section-body">
+        <p>
+          We use information to operate the app users expect to see. That includes creating and restoring
+          your local paper-trading profile, maintaining simulated balances and holdings, showing price changes
+          and charts, supporting in-app reward systems, and making optional features such as share actions or
+          ad-supported rewards function correctly.
+        </p>
+        <p>
+          Stokk may also rely on technical logs, request outcomes, and provider diagnostics to keep the app
+          functioning, investigate failures, reduce abuse, and understand whether remote requests or ad loads
+          are working as intended.
+        </p>
+
+        <div class="subhead">We may use information to:</div>
+        <ul class="plain-list">
+          <li><strong>Run the simulated trading experience</strong> and remember your state across sessions on the device.</li>
+          <li><strong>Fetch market data</strong> so charts, price moves, and supported assets can appear in the app.</li>
+          <li><strong>Support monetization features</strong> such as rewarded or banner ads where included.</li>
+          <li><strong>Respond to support messages</strong> and review privacy-related questions or requests.</li>
+          <li><strong>Protect the service</strong> by investigating misuse, technical abuse, or operational issues.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="sharing">
+      <div class="section-label">
+        <small>03</small>
+        <h2>Sharing and third parties</h2>
+      </div>
+
+      <div class="section-body">
+        <p>
+          We do not describe Stokk as selling a user's paper-trading history as a product. Even so, Stokk may
+          involve third parties in order to provide core remote functionality or monetization. Market-data
+          services may receive requests when the app loads prices. Ad providers may process data when ads are
+          requested or displayed. If you choose to use a device share sheet, your device platform may process
+          the content you choose to share.
+        </p>
+        <p>
+          We may also disclose information when reasonably necessary to comply with law, enforce our rights,
+          investigate abuse, or protect users, developers, or the public.
+        </p>
+
+        <div class="subhead">Third-party categories currently relevant to Stokk</div>
+        <ul class="plain-list">
+          <li><strong>Market-data providers</strong> used to retrieve supported price and chart information.</li>
+          <li><strong>Advertising providers</strong> used to deliver banner, app-open, or rewarded ads.</li>
+          <li><strong>Platform-level sharing tools</strong> when you intentionally share app content.</li>
+          <li><strong>Email providers</strong> when you contact us directly for support or privacy matters.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="retention">
+      <div class="section-label">
+        <small>04</small>
+        <h2>Retention and storage</h2>
+      </div>
+
+      <div class="section-body">
+        <p>
+          Much of the core Stokk experience is currently local-first. That means the profile and gameplay
+          information described above may remain on your device until you clear the app's stored data, use an
+          in-app reset function if available, or uninstall the app. Because local storage is part of how the
+          app remembers your progress, deleting app data may also remove your simulated holdings, history, and
+          unlocks from that device.
+        </p>
+        <p>
+          Third-party providers such as ad services, hosting layers, and market-data services may keep their
+          own logs, records, or security data for their own operational, contractual, legal, fraud-prevention,
+          and analytics purposes. Their retention timelines are controlled by them.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="rights">
+      <div class="section-label">
+        <small>05</small>
+        <h2>Your choices and rights</h2>
+      </div>
+
+      <div class="section-body">
+        <p>
+          Depending on your device, platform, and local law, you may have choices about how certain data is
+          handled. For example, you may be able to reset local app data, control ad-related settings on your
+          device, disable certain permissions, or choose not to use optional sharing features.
+        </p>
+        <p>
+          If you want to ask for access, deletion, clarification, or another privacy-related action, contact
+          us at <a href="mailto:pigeon.software.2012@gmail.com">pigeon.software.2012@gmail.com</a>. We may
+          need enough information to understand the request and confirm that we are responding appropriately.
+        </p>
+
+        <div class="subhead">In practice, you can usually:</div>
+        <ul class="plain-list">
+          <li><strong>Clear local data</strong> by resetting app storage or reinstalling the app.</li>
+          <li><strong>Limit ad tracking</strong> through device settings where your platform supports that control.</li>
+          <li><strong>Avoid optional sharing features</strong> if you do not want to send content through your OS share sheet.</li>
+          <li><strong>Email us directly</strong> if you want privacy help or need clarification on this policy.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="security">
+      <div class="section-label">
+        <small>06</small>
+        <h2>Security, children, and updates</h2>
+      </div>
+
+      <div class="section-body">
+        <p>
+          We use reasonable measures appropriate to the current scope of Stokk, but no app or transmission
+          method can guarantee absolute security. Users should avoid sending especially sensitive personal,
+          financial, or account information through casual support channels unless clearly requested in a
+          secure context.
+        </p>
+        <p>
+          If you are a parent or guardian and believe a child sent personal information through Stokk, please
+          contact us so we can review the issue. We may update this policy over time if Stokk changes. If the
+          app later adds cloud sync, sign-in systems, analytics, payments, social features, or new third-party
+          integrations, this page should be revised to reflect those changes.
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-label">
+          <small>Contact</small>
+          <h2>Questions or requests</h2>
+        </div>
+
+        <div class="footer-body">
+          <p>
+            For privacy questions, data requests, or policy clarifications, contact
+            <a href="mailto:pigeon.software.2012@gmail.com">pigeon.software.2012@gmail.com</a>.
+          </p>
+          <p class="tiny">
+            This page is intended to describe the current Stokk experience as of April 7, 2026. If the app's
+            data flows change materially, this policy should be updated with a new effective date.
+          </p>
+        </div>
+      </div>
     </footer>
   </div>
 </body>
