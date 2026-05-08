@@ -1,49 +1,36 @@
-# Privacy Policy for Stokk App
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Welcome to **Stokk**! Your privacy is important to us. This page explains how we handle your information and protect your data.
+## Getting Started
 
----
+First, run the development server:
 
-## About Stokk
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-**Stokk** is designed to provide a safe and fun experience for all users. We respect your privacy and ensure transparency in all our practices.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
----
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Data Collection
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-We only collect the information necessary to provide and improve your app experience, including:  
-- Device information  
-- Usage data  
-- Optional data you provide for personalized features  
+## Learn More
 
-We do **not sell** your personal data to any third party.
+To learn more about Next.js, take a look at the following resources:
 
----
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## Data Usage
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-The data collected is used to:  
-- Improve app performance  
-- Personalize your experience  
-- Maintain security and prevent abuse  
+## Deploy on Vercel
 
-All data is handled responsibly and securely.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
----
-
-## Children’s Privacy
-
-If you are under 13, please review this section carefully:  
-- We comply with regulations to protect children’s privacy  
-- Only collect essential information required for the app  
-
----
-
-## Updates to Privacy Policy
-
-We may update this privacy policy from time to time. Any changes will be reflected here to keep you informed.
-
----
-
-Thank you for trusting **Stokk**! Your security and privacy are our top priorities.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
