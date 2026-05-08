@@ -1,0 +1,3 @@
+:HL["/stokk.github.io/_next/static/chunks/0s-if~g1-8i1j.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=Roboto:wght@500&display=swap","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"VtJp6uy2bUKT4rQ60hdX6"}
